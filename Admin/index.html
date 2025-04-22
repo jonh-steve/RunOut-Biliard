@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TokyoLife">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./src/assets/img/runout_logo2-Photoroom.png" type="image/x-icon">
+    <title>Tokyo Life</title>
+    
+    <link rel="stylesheet" href="./src/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/assets/css/style.css">
+
+    <!-- jQuery first, then other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    
+    <!-- Angular and related scripts -->
+    <script src="./src/assets/js/angular.js"></script>
+    <script src="./src/assets/js/angular-cookie.js"></script>
+    <script src="./src/assets/js/angular-router.js"></script>
+    <script src="./src/assets/js/angular-jwt.js"></script>
+
+    <script src="./src/app.js"></script>
+    <script src="./src/services/APIServices.js"></script>
+    <script src="./src/services/DataServices.js"></script>
+
+    <!-- Switchery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+    <script src="./src/assets/js/ui-switchery.js"></script>
+
+    <!-- Controllers -->
+    <script src="./src/controllers/AppController.js"></script>
+    <script src="./src/controllers/DashboardController.js"></script>
+    <script src="./src/controllers/CategoryController.js"></script>
+    <script src="./src/controllers/UserController.js"></script>
+    <script src="./src/controllers/ProductController.js"></script>
+    <script src="./src/controllers/CouponController.js"></script>
+    <script src="./src/controllers/OrderController.js"></script>
+    <!-- <script src="./src/controllers/StatisticalController.js"></script> -->
+    <script src="./src/controllers/FeedbackController.js"></script>
+
+    <!--chartjs-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/0.10.2/angular-chart.js"></script>
+</head>
+
+<body ng-controller="AppController">
+    <div class="wrapper">
+        <div ng-include="'./src/components/_sidebar.html'"></div>
+
+        <div class="main">
+            <div ng-include="'./src/components/_header.html'"></div>
+
+            <div ng-view></div>
+        </div>
+    </div>
+
+    <script src="./src/assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
