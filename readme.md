@@ -1,4 +1,4 @@
-TokyoLife/
+RunOut/
 ├── create-project.ps1          # Script tạo dự án trên Windows
 ├── create-project.sh           # Script tạo dự án trên Linux/Mac
 ├── docker-compose.yml          # Cấu hình Docker Compose để triển khai dự án
