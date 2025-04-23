@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 ``` 
 # cau truc du an 
+=======
+>>>>>>> e6eaf65ec7aedd98bc7d55fdf134024931428288
 RunOut/
 ├── create-project.ps1          # Script tạo dự án trên Windows
 ├── create-project.sh           # Script tạo dự án trên Linux/Mac
@@ -77,6 +80,9 @@ RunOut/
 │   │   ├── services/           # Các dịch vụ hỗ trợ
 │   │   │   ├── ApiServices.js  # Dịch vụ gọi API
 │   │   │   ├── DataServices.js # Dịch vụ xử lý dữ liệu
+<<<<<<< HEAD
 
 ---
 ```
+=======
+>>>>>>> e6eaf65ec7aedd98bc7d55fdf134024931428288
