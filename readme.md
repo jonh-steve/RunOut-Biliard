@@ -1,4 +1,6 @@
-TokyoLife/
+``` 
+# cau truc du an 
+RunOut/
 ├── create-project.ps1          # Script tạo dự án trên Windows
 ├── create-project.sh           # Script tạo dự án trên Linux/Mac
 ├── docker-compose.yml          # Cấu hình Docker Compose để triển khai dự án
@@ -75,3 +77,6 @@ TokyoLife/
 │   │   ├── services/           # Các dịch vụ hỗ trợ
 │   │   │   ├── ApiServices.js  # Dịch vụ gọi API
 │   │   │   ├── DataServices.js # Dịch vụ xử lý dữ liệu
+
+---
+```
