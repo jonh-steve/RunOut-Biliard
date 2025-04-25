@@ -7,9 +7,14 @@ const brandRouter = require('./brand');
 const couponRouter = require('./coupon');
 const billRouter = require('./bill');
 
-const { notFound, errorHandler } = require('../middlewares/ErrorHandler')
+const { notFound, errorHandler } = require('../middlewares/ErrorHandler');
 
+/**
+ * Initialize all application routes
+ * @param {Express} app - Express application instance
+ */
 const initRoute = (app) => {
+    // API routes - each route uses its own validators defined in respective router files
     app.use('/api/user', userRouter);
     app.use('/api/product', productRouter);
     app.use('/api/category', categoryRouter);
@@ -19,8 +24,7 @@ const initRoute = (app) => {
     app.use('/api/coupon', couponRouter);
     app.use('/api/bill', billRouter);
 
-
-    //handle error
+    // Error handling middleware - these should be last in the middleware chain
     app.use(notFound);
     app.use(errorHandler);
 }

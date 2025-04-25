@@ -6,67 +6,88 @@ const jwt = require('jsonwebtoken');
 const sendMail = require('../utils/sendMail');
 const crypto = require('crypto');
 
-//register
+/**
+ * @desc    Đăng ký người dùng mới
+ * @route   POST /api/users/register
+ * @access  Public
+ * @note    Dữ liệu đã được validate bởi middleware trước khi đến controller
+ */
 const register = asyncHandler(async (req, res) => {
-    const { name, email, password } = req.body;
-
-    if (!name || !email || !password) {
-        return res.status(400).json({
-            success: false,
-            mes: "Vui lòng nhập đầy đủ thông tin"
-        })
-    }
-
+    // Dữ liệu đã được validate và sanitize bởi middleware
+    const { name, email, password, mobile } = req.body;
+    
+    // Kiểm tra email đã tồn tại chưa
     const user = await User.findOne({ email });
-
     if (user) {
         throw new Error('Email đã được đăng ký với tài khoản khác');
-    } else {
-        const newUser = await User.create(req.body);
-
-        return res.status(200).json({
-            success: newUser ? true : false,
-            mes: newUser ? 'Đăng ký tài khoản thành công' : 'Đã có lỗi xảy ra, vui lòng thử lại sau'
-        })
     }
+    
+    // Tạo người dùng mới với dữ liệu đã được validate
+    const newUser = await User.create({
+        name,
+        email,
+        password, // Password sẽ được hash trong model
+        mobile: mobile || ''
+    });
+
+    return res.status(201).json({
+        success: true,
+        mes: 'Đăng ký tài khoản thành công',
+        data: {
+            _id: newUser._id,
+            name: newUser.name,
+            email: newUser.email
+        }
+    });
 });
 
-//login
+/**
+ * @desc    Đăng nhập người dùng
+ * @route   POST /api/users/login
+ * @access  Public
+ * @note    Dữ liệu đã được validate bởi middleware trước khi đến controller
+ */
 const login = asyncHandler(async (req, res) => {
+    // Dữ liệu đã được validate bởi middleware
     const { email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).json({
-            success: false,
-            mes: "Vui lòng nhập đầy đủ thông tin"
-        });
-    }
-
-    const response = await User.findOne({ email });
-
-    if (response && await response.isCorrectPassword(password)) {
-
-        const { password, role, refreshToken, ...userData } = response.toObject();
-        //create access token
-        const accessToken = generateAccessToken(response._id, response.name, role);
-        //create refresh token
-        const newRefreshToken = generateRefreshToken(response._id);
-        //update refresh token in db
-        await User.findByIdAndUpdate(response._id, { refreshToken: newRefreshToken }, { new: true });
-
-        // save refresh token in cookie
-        res.cookie('refreshToken', newRefreshToken, { httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000 });
-        // save access token in cookie
-        res.cookie('accessToken', accessToken, { httpOnly: true, maxAge: 30 * 60 * 1000 }); // Example expiration: 30 minutes
-
-        return res.status(200).json({
-            success: true,
-            accessToken,
-            userData
-        });
-    } else {
+    
+    // Tìm user và kiểm tra password
+    const user = await User.findOne({ email });
+    
+    if (!user || !(await user.isCorrectPassword(password))) {
         throw new Error("Thông tin đăng nhập không chính xác");
     }
+
+    // Xử lý dữ liệu người dùng an toàn
+    const { password: userPassword, role, refreshToken, ...userData } = user.toObject();
+    
+    // Tạo tokens
+    const accessToken = generateAccessToken(user._id, user.name, role);
+    const newRefreshToken = generateRefreshToken(user._id);
+    
+    // Cập nhật refresh token trong database
+    await User.findByIdAndUpdate(user._id, { refreshToken: newRefreshToken }, { new: true });
+
+    // Thiết lập cookies bảo mật
+    res.cookie('refreshToken', newRefreshToken, { 
+        httpOnly: true, 
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict'
+    });
+    
+    res.cookie('accessToken', accessToken, { 
+        httpOnly: true, 
+        maxAge: 30 * 60 * 1000,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict'
+    });
+
+    return res.status(200).json({
+        success: true,
+        accessToken,
+        userData
+    });
 });
 
 
@@ -436,9 +457,40 @@ const getUserById = asyncHandler(async (req, res) => {
     });
 });
 
-//upload images
+/**
+ * @desc    Upload ảnh đại diện người dùng
+ * @route   POST /api/users/upload-avatar
+ * @access  Private
+ * @note    Dữ liệu file đã được validate bởi middleware trước khi đến controller
+ */
 const uploadImagesUser = asyncHandler(async (req, res) => {
-
+    const { _id } = req.user;
+    
+    if (!req.file) {
+        throw new Error("Không có file nào được tải lên");
+    }
+    
+    // Giả sử req.file.path chứa đường dẫn đến file đã được xử lý bởi middleware
+    const imagePath = req.file.path;
+    
+    // Cập nhật avatar cho user
+    const updatedUser = await User.findByIdAndUpdate(
+        _id,
+        { avatar: imagePath },
+        { new: true }
+    ).select('-password -refreshToken');
+    
+    if (!updatedUser) {
+        throw new Error("Cập nhật avatar thất bại");
+    }
+    
+    return res.status(200).json({
+        success: true,
+        mes: "Cập nhật avatar thành công",
+        data: {
+            avatar: updatedUser.avatar
+        }
+    });
 })
 
 module.exports = {

@@ -1,27 +1,28 @@
 const router = require('express').Router();
 const userCtrl = require('../controllers/user');
 const { verifyAccessToken, isAdmin } = require('../middlewares/verifyToken');
+const { validateRegister, validateLogin, validateUpdateUser } = require('../middlewares/validators/userValidator');
 
-router.post('/register', userCtrl.register);
-router.post('/login', userCtrl.login);
-router.get('/getCurrent', verifyAccessToken, userCtrl.getCurrent);
-
+// Routes không yêu cầu xác thực
+router.post('/register', validateRegister, userCtrl.register);
+router.post('/login', validateLogin, userCtrl.login);
 router.post('/refreshToken', userCtrl.refreshAccessToken);
-router.get('/logout', verifyAccessToken, userCtrl.logout);
-
 router.post('/forgot-password', userCtrl.forgotPassword);
 router.put('/reset-password', userCtrl.resetPassword);
 
-router.get('/', [verifyAccessToken, isAdmin], userCtrl.getUsers)
+// Routes yêu cầu xác thực
+router.use(verifyAccessToken);
+router.get('/getCurrent', userCtrl.getCurrent);
+router.put('/current', validateUpdateUser, userCtrl.updateUser);
+router.get('/logout', userCtrl.logout);
+router.put('/addToWishlist', userCtrl.addToWishlist);
+router.put('/deleteFromWishlist', userCtrl.deleteFromWishlist);
 
-router.delete('/', [verifyAccessToken, isAdmin], userCtrl.deleteUser)
-
-router.put('/current', verifyAccessToken, userCtrl.updateUser)
-router.put('/admin/update/:uid', [verifyAccessToken, isAdmin], userCtrl.updateUserByAdmin)
-
-router.put('/addToWishlist', verifyAccessToken, userCtrl.addToWishlist);
-router.put('/deleteFromWishlist', verifyAccessToken, userCtrl.deleteFromWishlist);
-
-router.post('/admin/create', [verifyAccessToken, isAdmin], userCtrl.addUserByAdmin);
-router.get('/admin/get/:uid', [verifyAccessToken, isAdmin], userCtrl.getUserById)
+// Routes yêu cầu quyền admin
+router.use(isAdmin);
+router.get('/', userCtrl.getUsers);
+router.delete('/', userCtrl.deleteUser);
+router.put('/admin/update/:uid', userCtrl.updateUserByAdmin);
+router.post('/admin/create', userCtrl.addUserByAdmin);
+router.get('/admin/get/:uid', userCtrl.getUserById);
 module.exports = router

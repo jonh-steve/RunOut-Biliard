@@ -1,3 +1,15 @@
+# hướng dẫn sử dụng dự án`
+``` 
+1. yeu cau co nodejs va npm tren may tinh
+2. chay lenh sau de cai dat cac thu vien can thiet
+npm install
+3. chay lenh sau de khoi dong server
+npm start
+4. yeu cau he thong : 
+    - Nodejs >= 16
+    - MongoDB >= 4.0
+
+
 <<<<<<< HEAD
 ``` 
 # cau truc du an 
