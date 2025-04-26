@@ -4,7 +4,7 @@ const connection = require('./configs/ConnectDB');
 const initRoute = require('./routes/index');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-
+const {limit} = require('./middlewares/rateLimit')
 require('dotenv').config();
 
 app.use(express.json());
@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors());
+
+app.use(limit);
 
 connection();
 
