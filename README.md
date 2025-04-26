@@ -571,7 +571,7 @@ npm run build
 │   │       └── settings.json
 │   └── .vscode
 │       └── launch.json
-├── TokyoLife.zip
+├
 └── txt.txt
 ```
 
