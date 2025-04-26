@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:4.4
+    volumes:
+      - mongodb_data:/data/db
+    env_file:
+      - ../env/.env.production
+    restart: always
+    
+  server:
+    build:
+      context: ../../apps/server
+      dockerfile: Dockerfile.prod
+    depends_on:
+      - mongodb
+    env_file:
+      - ../env/.env.production
+    restart: always
+    
+  client:
+    build:
+      context: ../../apps/client
+      dockerfile: Dockerfile.prod
+    depends_on:
+      - server
+    
+  admin:
+    build:
+      context: ../../apps/admin
+      dockerfile: Dockerfile.prod
+    depends_on:
+      - server
+      
+  user:
+    build:
+      context: ../../apps/user
+      dockerfile: Dockerfile.prod
+    depends_on:
+      - server
+      
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - client
+      - admin
+      - user
+      - server
+    restart: always
+
+volumes:
+  mongodb_data:

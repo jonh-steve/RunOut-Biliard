@@ -1,0 +1,163 @@
+{
+  "structure": {
+    ".vscode": {
+      "settings.json": null
+    },
+    "index.html": null,
+    "src": {
+      "app.js": null,
+      "assets": {
+        "css": {
+          "animation.css": null,
+          "boostrap.min.css": null,
+          "custom.css": null
+        },
+        "img": {
+          "icon": {},
+          "product": {}
+        },
+        "js": {
+          "angular-cookie.js": null,
+          "angular-jwt.js": null,
+          "angular-router.js": null,
+          "angular.js": null,
+          "data-location.json": null,
+          "sweet-alert.js": null
+        }
+      },
+      "components": {
+        "_footer.html": null,
+        "_header.html": null
+      },
+      "controllers": {
+        "AppController.js": null,
+        "CartController.js": null,
+        "CheckoutController.js": null,
+        "DetailController.js": null,
+        "ForgotPasswotdController.js": null,
+        "HomeController.js": null,
+        "LoginController.js": null,
+        "LookupController.js": null,
+        "ProductController.js": null,
+        "ProfileController.js": null,
+        "RegisterController.js": null,
+        "ResetPasswordController.js": null,
+        "SearchController.js": null,
+        "UserOrderController.js": null,
+        "UserWhishlistController.js": null
+      },
+      "pages": {
+        "cart.html": null,
+        "checkout.html": null,
+        "forgot-password.html": null,
+        "home.html": null,
+        "login.html": null,
+        "look-up-order.html": null,
+        "product-detail.html": null,
+        "product.html": null,
+        "profile.html": null,
+        "register.html": null,
+        "reset-password.html": null,
+        "user-order.html": null,
+        "wishlist.html": null
+      },
+      "services": {
+        "ApiServices.js": null,
+        "DataServices.js": null
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "_footer.html",
+      "path": "src/components/_footer.html",
+      "description": ""
+    },
+    {
+      "name": "_header.html",
+      "path": "src/components/_header.html",
+      "description": ""
+    }
+  ],
+  "pages": [
+    {
+      "name": "cart.html",
+      "path": "src/pages/cart.html",
+      "description": ""
+    },
+    {
+      "name": "checkout.html",
+      "path": "src/pages/checkout.html",
+      "description": ""
+    },
+    {
+      "name": "forgot-password.html",
+      "path": "src/pages/forgot-password.html",
+      "description": ""
+    },
+    {
+      "name": "home.html",
+      "path": "src/pages/home.html",
+      "description": ""
+    },
+    {
+      "name": "login.html",
+      "path": "src/pages/login.html",
+      "description": ""
+    },
+    {
+      "name": "look-up-order.html",
+      "path": "src/pages/look-up-order.html",
+      "description": ""
+    },
+    {
+      "name": "product-detail.html",
+      "path": "src/pages/product-detail.html",
+      "description": ""
+    },
+    {
+      "name": "product.html",
+      "path": "src/pages/product.html",
+      "description": ""
+    },
+    {
+      "name": "profile.html",
+      "path": "src/pages/profile.html",
+      "description": ""
+    },
+    {
+      "name": "register.html",
+      "path": "src/pages/register.html",
+      "description": ""
+    },
+    {
+      "name": "reset-password.html",
+      "path": "src/pages/reset-password.html",
+      "description": ""
+    },
+    {
+      "name": "user-order.html",
+      "path": "src/pages/user-order.html",
+      "description": ""
+    },
+    {
+      "name": "wishlist.html",
+      "path": "src/pages/wishlist.html",
+      "description": ""
+    }
+  ],
+  "services": [
+    {
+      "name": "ApiServices.js",
+      "path": "src/services/ApiServices.js"
+    },
+    {
+      "name": "DataServices.js",
+      "path": "src/services/DataServices.js"
+    }
+  ],
+  "utils": [],
+  "hooks": [],
+  "apiEndpoints": [],
+  "dependencies": []
+}
