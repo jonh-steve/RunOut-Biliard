@@ -47,7 +47,7 @@ npm run build
 
 ```
 .
-├── .qodo
+├── 
 ├── RunOut
 │   ├── Admin
 │   │   ├── index.html
