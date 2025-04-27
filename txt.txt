@@ -1,548 +1,4097 @@
-Tái cấu trúc thư mục dự án vào thư mục steve với cấu trúc thư mục sau:
-steve/
-├── apps/
-│   ├── admin/
-│   ├── client/
-│   ├── server/
-│   ├── user/
-├── common/
-│   ├── components/
-│   ├── services/
-│   ├── validators/
-│   ├── utils/
-├── config/
-├── docs/
-├── resources/
-│   ├── assets/
-│   ├── templates/
-├── tools/
-├── scripts/
+# Kế hoạch tái cấu trúc dự án RunOut
 
+## 1. Tổng quan dự án
 
-.
-├── .qodo
-├── RunOut
-│   ├── Admin
-│   │   ├── index.html
-│   │   ├── login.html
-│   │   ├── src
-│   │   │   ├── app.js
-│   │   │   ├── assets
-│   │   │   │   ├── css
-│   │   │   │   │   ├── bootstrap.min.css
-│   │   │   │   │   ├── style.css
-│   │   │   │   │   └── switches.css
-│   │   │   │   ├── img
-│   │   │   │   │   ├── ao2.webp
-│   │   │   │   │   ├── ao4.webp
-│   │   │   │   │   ├── avatar.jpg
-│   │   │   │   │   ├── favicon.webp
-│   │   │   │   │   ├── logo2.png
-│   │   │   │   │   ├── logo_run_out1.jpg
-│   │   │   │   │   ├── logo_steve.png
-│   │   │   │   │   ├── logo.svg
-│   │   │   │   │   ├── runout_logo2-Photoroom.png
-│   │   │   │   │   ├── runout_no_backgound.png
-│   │   │   │   │   └── sp1 (1).webp
-│   │   │   │   └── js
-│   │   │   │       ├── angular-cookie.js
-│   │   │   │       ├── angular.js
-│   │   │   │       ├── angular-jwt.js
-│   │   │   │       ├── angular-router.js
-│   │   │   │       ├── bootstrap.bundle.min.js
-│   │   │   │       ├── chart.js
-│   │   │   │       ├── data-location.json
-│   │   │   │       ├── file.js
-│   │   │   │       ├── img-preview.js
-│   │   │   │       ├── script.js
-│   │   │   │       └── ui-switchery.js
-│   │   │   ├── components
-│   │   │   │   ├── _header.html
-│   │   │   │   └── _sidebar.html
-│   │   │   ├── controllers
-│   │   │   │   ├── AppController.js
-│   │   │   │   ├── CategoryController.js
-│   │   │   │   ├── CouponController.js
-│   │   │   │   ├── DashboardController.js
-│   │   │   │   ├── FeedbackController.js
-│   │   │   │   ├── LoginController.js
-│   │   │   │   ├── OrderController.js
-│   │   │   │   ├── ProductController.js
-│   │   │   │   └── UserController.js
-│   │   │   ├── pages
-│   │   │   │   ├── category
-│   │   │   │   │   └── category.html
-│   │   │   │   ├── coupon
-│   │   │   │   │   ├── add.html
-│   │   │   │   │   └── coupon.html
-│   │   │   │   ├── dashboard.html
-│   │   │   │   ├── feedback
-│   │   │   │   │   ├── feedback-detail.html
-│   │   │   │   │   └── feedback.html
-│   │   │   │   ├── order
-│   │   │   │   │   ├── detail.html
-│   │   │   │   │   └── order.html
-│   │   │   │   ├── product
-│   │   │   │   │   ├── add.html
-│   │   │   │   │   ├── edit.html
-│   │   │   │   │   └── product.html
-│   │   │   │   ├── statistical
-│   │   │   │   │   └── statistical.html
-│   │   │   │   └── user
-│   │   │   │       ├── add.html
-│   │   │   │       ├── edit.html
-│   │   │   │       └── user.html
-│   │   │   └── services
-│   │   │       ├── APIServices.js
-│   │   │       └── DataServices.js
-│   │   └── .vscode
-│   │       └── settings.json
-│   ├── client
-│   │   ├── node_modules
-│   │   ├── package.json
-│   │   ├── package-lock.json
-│   │   └── src
-│   │       ├── assets
-│   │       ├── components
-│   │       │   ├── common
-│   │       │   │   ├── FormikValidation.jsx
-│   │       │   │   └── FormValidation.jsx
-│   │       │   ├── features
-│   │       │   └── layout
-│   │       ├── config
-│   │       ├── context
-│   │       ├── hooks
-│   │       │   ├── useFormikValidation.js
-│   │       │   └── useFormValidation.js
-│   │       ├── pages
-│   │       ├── schemas
-│   │       │   └── validationSchema.js
-│   │       ├── services
-│   │       │   ├── adapters
-│   │       │   └── api
-│   │       ├── store
-│   │       ├── styles
-│   │       ├── types
-│   │       ├── utils
-│   │       │   └── validationUtils.js
-│   │       └── validators
-│   │           ├── addressValidator.js
-│   │           ├── adminValidator.js
-│   │           ├── blogValidator.js
-│   │           ├── brandValidator.js
-│   │           ├── cartValidator.js
-│   │           ├── contactValidator.js
-│   │           ├── couponValidator.js
-│   │           ├── index.js
-│   │           ├── newsletterValidator.js
-│   │           ├── notificationValidator.js
-│   │           ├── orderValidator.js
-│   │           ├── paymentValidator.js
-│   │           ├── productValidator.js
-│   │           ├── reviewValidator.js
-│   │           ├── seoValidator.js
-│   │           ├── settingsValidator.js
-│   │           └── wishlistValidator.js
-│   ├── create-project.ps1
-│   ├── create-project.sh
-│   ├── docker-compose.yml
-│   ├── docs
-│   │   ├── api-migration-guide.md
-│   │   ├── huongdandongbo-phan-tiep-theo.md
-│   │   ├── huongDanSuDungAdapter.md
-│   │   ├── ke-hoach-dong-bo-hoa.md
-│   │   ├── migration-guide.md
-│   │   ├── summary.md
-│   │   ├── sync-plan.md
-│   │   └── sync-plan-supplement
-│   │       ├── chien-luoc-ui.md
-│   │       ├── huong-dan-phat-trien.md
-│   │       ├── huong-dan-su-dung-bo-sung.md
-│   │       ├── huong-dan-su-dung.md
-│   │       ├── ke-hoach-accessibility.md
-│   │       ├── ke-hoach-dao-tao.md
-│   │       ├── ke-hoach-kiem-thu.md
-│   │       ├── ke-hoach-quoc-te-hoa.md
-│   │       ├── ke-hoach-trien-khai.md
-│   │       ├── kien-truc-tong-the.md
-│   │       ├── phan-tich-chi-phi-loi-ich.md
-│   │       └── phan-tich-hien-trang.md
-│   ├── .DS_Store
-│   ├── .env.development
-│   ├── .env.production
-│   ├── .eslintrc.js
-│   ├── giai-doan-1-chuan-bi
-│   │   ├── 1.1-thiet-lap-du-an
-│   │   │   ├── .env.example
-│   │   │   ├── package.json
-│   │   │   └── README.md
-│   │   ├── 1.3-component-co-ban
-│   │   │   ├── Alert
-│   │   │   │   ├── Alert.client.jsx
-│   │   │   │   ├── Alert.jsx
-│   │   │   │   └── README.md
-│   │   │   ├── Button
-│   │   │   │   ├── Button.client.jsx
-│   │   │   │   └── Button.jsx
-│   │   │   ├── Card
-│   │   │   │   ├── Card.client.jsx
-│   │   │   │   ├── Card.jsx
-│   │   │   │   └── README.md
-│   │   │   ├── Form
-│   │   │   │   ├── Form.client.jsx
-│   │   │   │   ├── Form.jsx
-│   │   │   │   └── README.md
-│   │   │   ├── Input
-│   │   │   │   ├── Input.client.jsx
-│   │   │   │   ├── Input.jsx
-│   │   │   │   └── README.md
-│   │   │   ├── Loader
-│   │   │   │   ├── Loader.client.jsx
-│   │   │   │   ├── Loader.jsx
-│   │   │   │   └── README.md
-│   │   │   ├── Modal
-│   │   │   │   ├── Modal.client.jsx
-│   │   │   │   └── Modal.jsx
-│   │   │   └── Typography
-│   │   │       ├── README.md
-│   │   │       ├── Typography.client.jsx
-│   │   │       └── Typography.jsx
-│   │   └── 1.4-routing
-│   │       ├── AuthGuard.jsx
-│   │       ├── GuestGuard.jsx
-│   │       ├── README.md
-│   │       ├── RouterConfig.jsx
-│   │       ├── routes.client.js
-│   │       └── routes.js
-│   ├── giai-doan-2-xay-dung-nen-tang
-│   │   ├── 2.1-service-api
-│   │   │   ├── api-client.js
-│   │   │   ├── auth-service
-│   │   │   │   ├── AuthService.client.js
-│   │   │   │   └── AuthService.js
-│   │   │   ├── order-service
-│   │   │   │   ├── OrderService.client.js
-│   │   │   │   └── OrderService.js
-│   │   │   ├── product-service
-│   │   │   │   ├── ProductService.client.js
-│   │   │   │   └── ProductService.js
-│   │   │   └── user-service
-│   │   │       ├── UserService.client.js
-│   │   │       └── UserService.js
-│   │   ├── 2.2-he-thong-xac-thuc
-│   │   │   ├── AuthContext.jsx
-│   │   │   ├── authUtils.js
-│   │   │   └── useAuth.js
-│   │   ├── 2.3-trien-khai-quan-ly-trang-thai
-│   │   │   ├── AppProviders.jsx
-│   │   │   ├── CartContext.jsx
-│   │   │   ├── NotificationContext.jsx
-│   │   │   ├── Notification.jsx
-│   │   │   ├── ThemeContext.jsx
-│   │   │   ├── useCart.js
-│   │   │   ├── useNotification.js
-│   │   │   └── useTheme.js
-│   │   └── 2.4-tich-hop-ung-dung
-│   │       ├── App.jsx
-│   │       └── index.jsx
-│   ├── giai-doan-3-trien-khai-ui
-│   │   └── 3.1-layout
-│   │       └── Header
-│   │           └── Header.jsx
-│   ├── .git
-│   ├── .gitignore
-│   ├── huongdandongbo.md
-│   ├── package.json
-│   ├── .prettierrc
-│   ├── .qodo
-│   ├── readme.md
-│   ├── README.md
-│   ├── run.md
-│   ├── Server
-│   │   ├── configs
-│   │   │   ├── Cloudinary.js
-│   │   │   ├── ConnectDB.js
-│   │   │   ├── CreateAdmin.js
-│   │   │   └── sucurity.js
-│   │   ├── controllers
-│   │   │   ├── bill.js
-│   │   │   ├── blogCategory.js
-│   │   │   ├── blog.js
-│   │   │   ├── brand.js
-│   │   │   ├── category.js
-│   │   │   ├── coupon.js
-│   │   │   ├── product.js
-│   │   │   └── user.js
-│   │   ├── .env
-│   │   ├── .gitignore
-│   │   ├── middlewares
-│   │   │   ├── ErrorHandler.js
-│   │   │   ├── jwt.js
-│   │   │   ├── rateLimit.js
-│   │   │   ├── validation.js
-│   │   │   ├── validators
-│   │   │   │   ├── addressValidator.js
-│   │   │   │   ├── adminValidator.js
-│   │   │   │   ├── billValidator.js
-│   │   │   │   ├── blogValidator.js
-│   │   │   │   ├── brandValidator.js
-│   │   │   │   ├── cartValidator.js
-│   │   │   │   ├── categoryValidator.js
-│   │   │   │   ├── contactValidator.js
-│   │   │   │   ├── couponValidator.js
-│   │   │   │   ├── index.js
-│   │   │   │   ├── newsletterValidator.js
-│   │   │   │   ├── notificationValidator.js
-│   │   │   │   ├── orderValidator.js
-│   │   │   │   ├── paymentValidator.js
-│   │   │   │   ├── productValidator.js
-│   │   │   │   ├── reviewValidator.js
-│   │   │   │   ├── seoValidator.js
-│   │   │   │   ├── settingsValidator.js
-│   │   │   │   ├── userValidator.js
-│   │   │   │   └── wishlistValidator.js
-│   │   │   └── verifyToken.js
-│   │   ├── models
-│   │   │   ├── bill.js
-│   │   │   ├── blogCategory.js
-│   │   │   ├── blog.js
-│   │   │   ├── brand.js
-│   │   │   ├── category.js
-│   │   │   ├── coupon.js
-│   │   │   ├── product.js
-│   │   │   └── user.js
-│   │   ├── node_modules
-│   │   ├── package.json
-│   │   ├── package-lock.json
-│   │   ├── routes
-│   │   │   ├── bill.js
-│   │   │   ├── blogCategory.js
-│   │   │   ├── blog.js
-│   │   │   ├── brand.js
-│   │   │   ├── category.js
-│   │   │   ├── coupon.js
-│   │   │   ├── index.js
-│   │   │   ├── product.js
-│   │   │   └── user.js
-│   │   ├── server.js
-│   │   ├── test
-│   │   ├── utils
-│   │   │   └── sendMail.js
-│   │   └── yarn.lock
-│   ├── src
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── components
-│   │   │   ├── common
-│   │   │   │   ├── Button.css
-│   │   │   │   ├── Button.jsx
-│   │   │   │   ├── Card.css
-│   │   │   │   ├── Card.jsx
-│   │   │   │   ├── Input.css
-│   │   │   │   ├── Input.jsx
-│   │   │   │   └── UIWrapper.js
-│   │   │   ├── features
-│   │   │   │   ├── Search
-│   │   │   │   │   ├── SearchBar.css
-│   │   │   │   │   └── SearchBar.jsx
-│   │   │   │   └── Wishlist
-│   │   │   │       ├── WishlistButton.css
-│   │   │   │       └── WishlistButton.jsx
-│   │   │   └── layout
-│   │   │       ├── Footer.css
-│   │   │       ├── Footer.jsx
-│   │   │       ├── Header.css
-│   │   │       ├── Header.jsx
-│   │   │       ├── Layout.css
-│   │   │       ├── Layout.jsx
-│   │   │       ├── Sidebar.css
-│   │   │       └── Sidebar.jsx
-│   │   ├── context
-│   │   │   ├── AppProvider.jsx
-│   │   │   ├── AuthContext.jsx
-│   │   │   ├── CartContext.jsx
-│   │   │   └── WishlistContext.jsx
-│   │   ├── hooks
-│   │   │   ├── useDebounce.js
-│   │   │   ├── useFetch.js
-│   │   │   ├── useForm.js
-│   │   │   └── useLocalStorage.js
-│   │   ├── index.css
-│   │   ├── index.jsx
-│   │   ├── pages
-│   │   │   ├── AuthPage.css
-│   │   │   ├── AuthPage.jsx
-│   │   │   ├── CartPage.css
-│   │   │   ├── CartPage.jsx
-│   │   │   ├── CheckoutPage.css
-│   │   │   ├── CheckoutPage.jsx
-│   │   │   ├── HomePage.css
-│   │   │   ├── HomePage.jsx
-│   │   │   ├── ProductDetailPage.css
-│   │   │   ├── ProductDetailPage.jsx
-│   │   │   ├── ProductsPage.css
-│   │   │   ├── ProductsPage.jsx
-│   │   │   ├── ProfilePage.css
-│   │   │   ├── ProfilePage.jsx
-│   │   │   ├── WishlistPage.css
-│   │   │   └── WishlistPage.jsx
-│   │   ├── services
-│   │   │   ├── adapters
-│   │   │   │   └── apiAdapter.js
-│   │   │   ├── api
-│   │   │   │   ├── authService.js
-│   │   │   │   ├── axiosConfig.js
-│   │   │   │   ├── cartService.js
-│   │   │   │   ├── productService.js
-│   │   │   │   └── userService.js
-│   │   │   ├── apiAdapter.js
-│   │   │   ├── authAdapter.js
-│   │   │   ├── dataFetchingAdapter.js
-│   │   │   ├── errorHandlingAdapter.js
-│   │   │   ├── formAdapter.js
-│   │   │   ├── i18nAdapter.js
-│   │   │   ├── notificationAdapter.js
-│   │   │   ├── routeAdapter.js
-│   │   │   ├── storageAdapter.js
-│   │   │   └── theme
-│   │   │       └── themeAdapter.js
-│   │   ├── state
-│   │   │   └── stateAdapter.js
-│   │   └── utils
-│   │       ├── formatUtils.js
-│   │       ├── storageUtils.js
-│   │       └── validationUtils.js
-│   ├── tempfor_gen.js
-│   ├── tools
-│   │   ├── api-analyzer.js
-│   │   ├── api-mapping-tool.js
-│   │   ├── component-consistency-checker.js
-│   │   ├── component-conversion-cli.js
-│   │   ├── folder-structure-analyzer.js
-│   │   ├── mui-to-tailwind.js
-│   │   ├── route-mapping-tool.js
-│   │   ├── state-management-analyzer.js
-│   │   ├── user-folder-analysis.json
-│   │   └── utility-adapter.js
-│   ├── txt.txt
-│   ├── User
-│   │   ├── index.html
-│   │   ├── src
-│   │   │   ├── app.js
-│   │   │   ├── assets
-│   │   │   │   ├── css
-│   │   │   │   │   ├── animation.css
-│   │   │   │   │   ├── boostrap.min.css
-│   │   │   │   │   └── custom.css
-│   │   │   │   ├── img
-│   │   │   │   │   ├── icon
-│   │   │   │   │   │   ├── app_store.svg
-│   │   │   │   │   │   ├── avatar.png
-│   │   │   │   │   │   ├── background_blog.jpg
-│   │   │   │   │   │   ├── banner1.webp
-│   │   │   │   │   │   ├── banner2.webp
-│   │   │   │   │   │   ├── bocongthuong (1).svg
-│   │   │   │   │   │   ├── chung-nhan-chinh-hang.webp
-│   │   │   │   │   │   ├── EmtyReview.86be870e.svg
-│   │   │   │   │   │   ├── f90a9027dcd34b969f1bc90d345ded0d_optimized_original_image.webp
-│   │   │   │   │   │   ├── favicon.webp
-│   │   │   │   │   │   ├── footer-logo.webp
-│   │   │   │   │   │   ├── google_play.svg
-│   │   │   │   │   │   ├── icon-bag-2.svg
-│   │   │   │   │   │   ├── icon-bag-3.svg
-│   │   │   │   │   │   ├── icon-bag-4.svg
-│   │   │   │   │   │   ├── icon-bag-5.svg
-│   │   │   │   │   │   ├── icon-bag.svg
-│   │   │   │   │   │   ├── icon-cart-2.svg
-│   │   │   │   │   │   ├── icon-cart-3.svg
-│   │   │   │   │   │   ├── icon-cart-plus.svg
-│   │   │   │   │   │   ├── icon-cart.svg
-│   │   │   │   │   │   ├── icon-check.svg
-│   │   │   │   │   │   ├── icon-circle-arrow.svg
-│   │   │   │   │   │   ├── icon-delivery.svg
-│   │   │   │   │   │   ├── icon-fb2.svg
-│   │   │   │   │   │   ├── icon-fb.svg
-│   │   │   │   │   │   ├── icon-fls.png
-│   │   │   │   │   │   ├── icon-fls.svg
-│   │   │   │   │   │   ├── icon-gg.svg
-│   │   │   │   │   │   ├── icon-lc.svg
-│   │   │   │   │   │   ├── icon-like.svg
-│   │   │   │   │   │   ├── icon-money-2.svg
-│   │   │   │   │   │   ├── icon-money.svg
-│   │   │   │   │   │   ├── icon-payment.svg
-│   │   │   │   │   │   ├── icon-special.svg
-│   │   │   │   │   │   ├── icon-support.svg
-│   │   │   │   │   │   ├── icon-toptop.svg
-│   │   │   │   │   │   ├── icon-tracking.svg
-│   │   │   │   │   │   ├── icon-truck.svg
-│   │   │   │   │   │   ├── icon-user-circle.svg
-│   │   │   │   │   │   ├── icon-user.svg
-│   │   │   │   │   │   ├── icon-ytb.svg
-│   │   │   │   │   │   ├── icon-zalo.svg
-│   │   │   │   │   │   ├── logo.svg
-│   │   │   │   │   │   ├── logo-white.svg
-│   │   │   │   │   │   ├── qrcode2.svg
-│   │   │   │   │   │   └── store-bg.jpg
-│   │   │   │   │   └── product
-│   │   │   │   │       ├── 17085842809257720.webp
-│   │   │   │   │       ├── 77ab3bceae124015949c1df535d6ba86_optimized_original_image.webp
-│   │   │   │   │       ├── apl1.webp
-│   │   │   │   │       ├── asmn1.webp
-│   │   │   │   │       ├── asmn2.webp
-│   │   │   │   │       ├── cf7bf4bc26dd4dc9b801354b8e4b8148_optimized_original_image.webp
-│   │   │   │   │       ├── chan-vay-chong-nang.webp
-│   │   │   │   │       ├── polo-co-vai-tron.webp
-│   │   │   │   │       ├── size_guide.webp
-│   │   │   │   │       ├── sp1.webp
-│   │   │   │   │       ├── sp2.webp
-│   │   │   │   │       ├── sp3.webp
-│   │   │   │   │       └── sp4.webp
-│   │   │   │   └── js
-│   │   │   │       ├── angular-cookie.js
-│   │   │   │       ├── angular.js
-│   │   │   │       ├── angular-jwt.js
-│   │   │   │       ├── angular-router.js
-│   │   │   │       ├── data-location.json
-│   │   │   │       └── sweet-alert.js
-│   │   │   ├── components
-│   │   │   │   ├── _footer.html
-│   │   │   │   └── _header.html
-│   │   │   ├── controllers
-│   │   │   │   ├── AppController.js
-│   │   │   │   ├── CartController.js
-│   │   │   │   ├── CheckoutController.js
-│   │   │   │   ├── DetailController.js
-│   │   │   │   ├── ForgotPasswotdController.js
-│   │   │   │   ├── HomeController.js
-│   │   │   │   ├── LoginController.js
-│   │   │   │   ├── LookupController.js
-│   │   │   │   ├── ProductController.js
-│   │   │   │   ├── ProfileController.js
-│   │   │   │   ├── RegisterController.js
-│   │   │   │   ├── ResetPasswordController.js
-│   │   │   │   ├── SearchController.js
-│   │   │   │   ├── UserOrderController.js
-│   │   │   │   └── UserWhishlistController.js
-│   │   │   ├── pages
-│   │   │   │   ├── cart.html
-│   │   │   │   ├── checkout.html
-│   │   │   │   ├── forgot-password.html
-│   │   │   │   ├── home.html
-│   │   │   │   ├── login.html
-│   │   │   │   ├── look-up-order.html
-│   │   │   │   ├── product-detail.html
-│   │   │   │   ├── product.html
-│   │   │   │   ├── profile.html
-│   │   │   │   ├── register.html
-│   │   │   │   ├── reset-password.html
-│   │   │   │   ├── user-order.html
-│   │   │   │   └── wishlist.html
-│   │   │   └── services
-│   │   │       ├── ApiServices.js
-│   │   │       └── DataServices.js
-│   │   └── .vscode
-│   │       └── settings.json
-│   └── .vscode
-│       └── launch.json
-├
-└── txt.txt
+### 1.1. Mục tiêu
+Tái cấu trúc dự án RunOut từ cấu trúc hiện tại (phức tạp và trùng lặp) sang một cấu trúc thư mục mới, hiện đại và có tổ chức hơn trong thư mục `steve/`.
+
+### 1.2. Phạm vi
+- Chuyển đổi từ AngularJS (Admin, User) sang React (client)
+- Tái cấu trúc Backend Express.js
+- Thiết lập shared components, validators và utilities
+- Cấu hình và tài liệu
+
+### 1.3. Định hướng công nghệ
+- **Backend**: Express.js
+- **Frontend**: React + Tailwind CSS
+- **Môi trường**: Docker
+- **Database**: MongoDB
+- **Testing**: Jest, React Testing Library, Cypress
+
+## 2. Phân tích hiện trạng và xác định vấn đề
+
+### 2.1. Cấu trúc hiện tại
+Dự án RunOut hiện tại có cấu trúc phức tạp với nhiều thư mục chồng chéo và trùng lặp:
+
+- **Admin/**: Dashboard quản trị sử dụng AngularJS
+- **User/**: Frontend người dùng sử dụng AngularJS
+- **Server/**: Backend Express.js
+- **client/**: Phiên bản React mới (đang phát triển)
+- **src/**: Trùng lặp với client/src, cũng sử dụng React
+- **tools/**: Các công cụ hỗ trợ phát triển
+- **steve/**: Cấu trúc mới đang xây dựng
+
+### 2.2. Vấn đề chính
+
+1. **Trùng lặp code**:
+   - Có hai thư mục frontend React (`src/` và `client/src/`)
+   - Validators được lặp lại ở nhiều nơi
+   - Nhiều service trùng lặp với chức năng tương tự
+
+2. **Công nghệ không nhất quán**:
+   - AngularJS (Admin và User)
+   - React (client và src)
+   - Thiếu các adapter và patterns chung
+
+3. **Quản lý môi trường kém**:
+   - Các file .env phân tán ở nhiều vị trí
+   - Thiếu cấu hình Docker nhất quán
+
+4. **Tài liệu phân tán**:
+   - Thiếu tài liệu tập trung
+   - Thiếu hướng dẫn phát triển chuẩn
+
+5. **Thiếu infrastructure testing**:
+   - Không có cấu trúc testing rõ ràng
+   - Thiếu automation tests
+
+## 3. Cấu trúc mục tiêu
+
+### 3.1. Backend Express.js
+
+```
+steve/apps/server/
+├── config/           # Cấu hình đặc thù cho server
+├── configs/          # Di chuyển từ Server/configs
+├── controllers/      # Di chuyển từ Server/controllers
+├── middlewares/      # Di chuyển từ Server/middlewares
+├── models/           # Di chuyển từ Server/models
+├── routes/           # Di chuyển từ Server/routes
+├── utils/            # Di chuyển từ Server/utils
+├── server.js         # Entry point
+├── Dockerfile.prod   # Production Docker
+├── .env              # Biến môi trường
+├── package.json      # Dependencies
+└── tests/            # Unit và integration tests
+```
+
+### 3.2. Frontend React + Tailwind CSS
+
+```
+steve/apps/client/
+├── config/           # Cấu hình webpack, babel, etc.
+├── public/           # Static assets
+├── src/
+│   ├── assets/       # Images, fonts, etc.
+│   ├── components/   # UI components
+│   │   ├── common/   # Shared components
+│   │   ├── features/ # Feature-specific components
+│   │   └── layout/   # Layout components
+│   ├── hooks/        # Custom React hooks
+│   ├── pages/        # Page components
+│   ├── services/     # API communication
+│   ├── context/      # React context
+│   ├── utils/        # Utility functions
+│   ├── App.jsx       # Main App component
+│   └── index.jsx     # Entry point
+├── tailwind.config.js # Tailwind config
+├── Dockerfile.prod    # Production Docker
+├── .env.development   # Development env vars
+├── .env.production    # Production env vars
+└── package.json       # Dependencies
+```
+
+### 3.3. Shared components, validators, utilities
+
+```
+steve/common/
+├── services/         # Shared services
+│   └── api/          # API clients
+│       ├── auth-service/
+│       ├── order-service/
+│       ├── product-service/
+│       └── user-service/
+├── validators/       # Shared validators
+├── utils/            # Shared utilities
+└── types/            # TypeScript type definitions
+```
+
+### 3.4. Cấu hình và tài liệu
+
+```
+steve/config/
+├── docker/           # Docker configurations
+├── env/              # Environment templates
+├── lint/             # Linting configurations
+└── scripts/          # Utility scripts
+
+steve/docs/
+├── api/              # API documentation
+├── architecture/     # Architecture documentation
+├── development/      # Development guides
+├── migration/        # Migration guides
+└── setup/            # Setup instructions
+```
+
+### 3.5. Rủi ro trong cấu trúc mục tiêu
+
+1. **Thư mục steve/common**:
+   - Có thể gặp vấn đề về kết nối với các ứng dụng riêng biệt nếu không có cơ chế import/export phù hợp
+   
+2. **Đề xuất**:
+   - Cần có chiến lược rõ ràng cho việc import các thành phần từ common vào các ứng dụng
+   - Có thể sử dụng npm workspaces hoặc symlinks
+
+## 4. Kế hoạch di chuyển từng bước
+
+### 4.1. Giai đoạn 1: Thiết lập cấu trúc thư mục và môi trường (1-2 ngày)
+
+1. **Tạo cấu trúc thư mục cơ bản**
+   - Tạo các thư mục còn thiếu trong `steve/`
+   - Thiết lập các file cấu hình Docker, ESLint, Prettier
+
+2. **Thiết lập môi trường phát triển**
+   - Tạo Docker Compose cho development
+   - Tạo các file .env mẫu
+   - Cấu hình ESLint và Prettier
+
+### 4.2. Giai đoạn 2: Di chuyển Backend (2-3 ngày)
+
+1. **Di chuyển cơ sở dữ liệu và models**
+   - Di chuyển models từ `Server/models/` sang `steve/apps/server/models/`
+   - Đảm bảo tương thích và nhất quán
+
+2. **Di chuyển controllers và routes**
+   - Di chuyển controllers từ `Server/controllers/` sang `steve/apps/server/controllers/`
+   - Di chuyển routes từ `Server/routes/` sang `steve/apps/server/routes/`
+   - Kiểm tra tính đúng đắn của API endpoints
+
+3. **Di chuyển middlewares và utilities**
+   - Di chuyển middlewares từ `Server/middlewares/` sang `steve/apps/server/middlewares/`
+   - Di chuyển utilities từ `Server/utils/` sang `steve/apps/server/utils/`
+
+4. **Cập nhật dependencies và scripts**
+   - Cập nhật package.json với các dependencies cần thiết
+   - Tạo scripts để khởi động server
+
+### 4.3. Giai đoạn 3: Tạo Shared Components và Validators (3-4 ngày)
+
+1. **Tạo shared validators**
+   - Di chuyển và tổng hợp validators từ các thư mục khác nhau
+   - Tạo các validators mới nếu cần thiết
+
+2. **Tạo shared services**
+   - Thiết kế lại các service để tái sử dụng
+   - Tạo các service adapter
+
+3. **Tạo shared utilities**
+   - Di chuyển và tổng hợp utilities từ các thư mục khác nhau
+   - Tạo các utility mới nếu cần thiết
+
+### 4.4. Giai đoạn 4: Di chuyển và chuyển đổi Frontend (5-7 ngày)
+
+1. **Di chuyển React components từ client/src**
+   - Phân tích và tái cấu trúc thành các component có tổ chức
+   - Chuyển sang Tailwind CSS nếu cần
+
+2. **Chuyển đổi AngularJS từ User/ sang React**
+   - Phân tích từng trang và chức năng trong AngularJS
+   - Viết lại bằng React và Tailwind CSS
+   - Giữ nguyên chức năng và luồng dữ liệu
+
+3. **Tích hợp với shared services và validators**
+   - Cập nhật các component để sử dụng shared services
+   - Áp dụng shared validators cho các form
+
+### 4.5. Giai đoạn 5: Cấu hình Docker và CI/CD (2-3 ngày)
+
+1. **Tạo Dockerfiles cho mỗi service**
+   - Tạo Dockerfile.dev và Dockerfile.prod cho từng service
+   - Tối ưu hóa build time và image size
+
+2. **Tạo Docker Compose cho toàn bộ stack**
+   - Cấu hình các service để làm việc cùng nhau
+   - Thiết lập mạng và volumes
+
+3. **Thiết lập CI/CD workflow**
+   - Cấu hình GitHub Actions hoặc GitLab CI
+   - Tự động hóa testing, building và deployment
+
+### 4.6. Giai đoạn 6: Tài liệu và Testing (3-4 ngày)
+
+1. **Viết tài liệu**
+   - Tài liệu API
+   - Hướng dẫn phát triển
+   - Quy trình làm việc
+
+2. **Thiết lập testing infrastructure**
+   - Unit tests cho backend
+   - Component tests cho frontend
+   - Integration tests cho toàn bộ hệ thống
+
+### 4.7. Đánh giá và rủi ro của kế hoạch
+
+1. **Rủi ro thời gian**:
+   - Thời gian ước tính chưa tính đến các vấn đề phát sinh
+   - Chưa đề cập đến việc xử lý dữ liệu đang hoạt động (nếu có)
+
+2. **Đề xuất**:
+   - Thêm buffer time 20-30% cho mỗi giai đoạn để xử lý vấn đề phát sinh
+   - Bổ sung kế hoạch kiểm tra tương thích dữ liệu sau mỗi giai đoạn
+
+## 5. Scripts di chuyển tự động
+
+### 5.1. Script di chuyển backend
+
+```bash
+#!/bin/bash
+# move-backend.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/apps/server/configs
+mkdir -p ./steve/apps/server/controllers
+mkdir -p ./steve/apps/server/middlewares
+mkdir -p ./steve/apps/server/models
+mkdir -p ./steve/apps/server/routes
+mkdir -p ./steve/apps/server/utils
+mkdir -p ./steve/apps/server/tests
+
+# Di chuyển configs
+echo "Moving configs..."
+cp -r ./RunOut/Server/configs/* ./steve/apps/server/configs/
+
+# Di chuyển controllers
+echo "Moving controllers..."
+cp -r ./RunOut/Server/controllers/* ./steve/apps/server/controllers/
+
+# Di chuyển middlewares
+echo "Moving middlewares..."
+cp -r ./RunOut/Server/middlewares/* ./steve/apps/server/middlewares/
+
+# Di chuyển models
+echo "Moving models..."
+cp -r ./RunOut/Server/models/* ./steve/apps/server/models/
+
+# Di chuyển routes
+echo "Moving routes..."
+cp -r ./RunOut/Server/routes/* ./steve/apps/server/routes/
+
+# Di chuyển utils
+echo "Moving utils..."
+cp -r ./RunOut/Server/utils/* ./steve/apps/server/utils/
+
+# Di chuyển server.js và các file cấu hình
+echo "Moving server.js and configuration files..."
+cp ./RunOut/Server/server.js ./steve/apps/server/
+cp ./RunOut/Server/.env ./steve/apps/server/
+cp ./RunOut/Server/package.json ./steve/apps/server/
+
+echo "Backend migration completed!"
+```
+
+### 5.2. Script di chuyển và tổng hợp validators
+
+```bash
+#!/bin/bash
+# move-validators.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/common/validators
+
+# 1. Di chuyển validators từ server
+echo "Moving validators from Server..."
+cp -r ./RunOut/Server/middlewares/validators/* ./steve/common/validators/
+
+# 2. Di chuyển validators từ client
+echo "Moving validators from client..."
+if [ -d "./RunOut/client/src/validators" ]; then
+  for file in ./RunOut/client/src/validators/*.js; do
+    if [ -f "$file" ]; then
+      filename=$(basename "$file")
+      # Kiểm tra xem file đã tồn tại trong thư mục đích chưa
+      if [ -f "./steve/common/validators/$filename" ]; then
+        echo "Merging $filename..."
+        # Kế hoạch: Nếu file đã tồn tại, ta sẽ cần phân tích và hợp nhất thủ công
+        cp "$file" "./steve/common/validators/${filename%.js}.client.js"
+      else
+        echo "Copying $filename..."
+        cp "$file" "./steve/common/validators/"
+      fi
+    fi
+  done
+fi
+
+# 3. Kiểm tra và hợp nhất các validator trùng lặp
+echo "Checking for duplicate validators..."
+# Logic để phát hiện và hợp nhất validators trùng lặp
+
+echo "Validators migration completed!"
+```
+
+### 5.3. Script chuẩn hóa các file cấu hình
+
+```bash
+#!/bin/bash
+# standardize-configs.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/config/env
+mkdir -p ./steve/config/lint
+
+# Di chuyển các file .env từ nhiều vị trí và chuẩn hóa
+echo "Standardizing .env files..."
+
+# Di chuyển .env từ Server
+if [ -f "./RunOut/Server/.env" ]; then
+  cp "./RunOut/Server/.env" "./steve/config/env/.env.server"
+fi
+
+# Di chuyển .env từ client
+if [ -f "./RunOut/client/.env.development" ]; then
+  cp "./RunOut/client/.env.development" "./steve/config/env/.env.development"
+fi
+
+if [ -f "./RunOut/client/.env.production" ]; then
+  cp "./RunOut/client/.env.production" "./steve/config/env/.env.production"
+fi
+
+# Di chuyển các file cấu hình ESLint và Prettier
+echo "Moving linting configurations..."
+if [ -f "./RunOut/.eslintrc.js" ]; then
+  cp "./RunOut/.eslintrc.js" "./steve/config/lint/"
+fi
+
+if [ -f "./RunOut/.prettierrc" ]; then
+  cp "./RunOut/.prettierrc" "./steve/config/lint/"
+fi
+
+# Tạo file .env.example
+echo "Creating .env.example template..."
+cat > "./steve/config/env/.env.example" << EOL
+# API Configuration
+API_PORT=3001
+API_HOST=localhost
+API_PREFIX=/api/v1
+
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=27017
+DB_NAME=runout
+DB_USER=
+DB_PASS=
+
+# JWT Configuration
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=30d
+
+# Cloud Storage
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# Email Configuration
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_USER=
+EMAIL_PASS=
+EMAIL_FROM=
+
+# Frontend URLs
+CLIENT_URL=http://localhost:3000
+ADMIN_URL=http://localhost:3002
+EOL
+
+echo "Configuration standardization completed!"
+```
+
+### 5.4. Script di chuyển React frontend
+
+```bash
+#!/bin/bash
+# move-react-frontend.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/apps/client/src/assets
+mkdir -p ./steve/apps/client/src/components/common
+mkdir -p ./steve/apps/client/src/components/features
+mkdir -p ./steve/apps/client/src/components/layout
+mkdir -p ./steve/apps/client/src/context
+mkdir -p ./steve/apps/client/src/hooks
+mkdir -p ./steve/apps/client/src/pages
+mkdir -p ./steve/apps/client/src/services/api
+mkdir -p ./steve/apps/client/src/utils
+mkdir -p ./steve/apps/client/public
+
+# Chọn source React nào để di chuyển (ưu tiên client/src)
+if [ -d "./RunOut/client/src" ]; then
+  SOURCE_DIR="./RunOut/client/src"
+  echo "Using client/src as source..."
+elif [ -d "./RunOut/src" ]; then
+  SOURCE_DIR="./RunOut/src"
+  echo "Using src as source..."
+else
+  echo "No React source directory found!"
+  exit 1
+fi
+
+# Di chuyển các file và thư mục cơ bản
+echo "Moving basic files and directories..."
+cp "${SOURCE_DIR}/App.jsx" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/App.css" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/index.jsx" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/index.css" "./steve/apps/client/src/" 2>/dev/null || :
+
+# Di chuyển components
+echo "Moving components..."
+cp -r "${SOURCE_DIR}/components/common"/* "./steve/apps/client/src/components/common/" 2>/dev/null || :
+cp -r "${SOURCE_DIR}/components/features"/* "./steve/apps/client/src/components/features/" 2>/dev/null || :
+cp -r "${SOURCE_DIR}/components/layout"/* "./steve/apps/client/src/components/layout/" 2>/dev/null || :
+
+# Di chuyển contexts
+echo "Moving contexts..."
+cp -r "${SOURCE_DIR}/context"/* "./steve/apps/client/src/context/" 2>/dev/null || :
+
+# Di chuyển hooks
+echo "Moving hooks..."
+cp -r "${SOURCE_DIR}/hooks"/* "./steve/apps/client/src/hooks/" 2>/dev/null || :
+
+# Di chuyển pages
+echo "Moving pages..."
+cp -r "${SOURCE_DIR}/pages"/* "./steve/apps/client/src/pages/" 2>/dev/null || :
+
+# Di chuyển services
+echo "Moving services..."
+cp -r "${SOURCE_DIR}/services/api"/* "./steve/apps/client/src/services/api/" 2>/dev/null || :
+
+# Di chuyển utils
+echo "Moving utils..."
+cp -r "${SOURCE_DIR}/utils"/* "./steve/apps/client/src/utils/" 2>/dev/null || :
+
+# Di chuyển package.json
+echo "Moving package.json..."
+if [ -f "./RunOut/client/package.json" ]; then
+  cp "./RunOut/client/package.json" "./steve/apps/client/"
+else
+  # Tạo package.json cơ bản nếu không có
+  cat > "./steve/apps/client/package.json" << EOL
+{
+  "name": "runout-client",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "axios": "^1.3.5",
+    "formik": "^2.2.9",
+    "yup": "^1.1.1",
+    "tailwindcss": "^3.3.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "postcss": "^8.4.21",
+    "vite": "^4.2.1",
+    "vitest": "^0.30.1"
+  }
+}
+EOL
+fi
+
+echo "React frontend migration completed!"
+```
+
+### 5.5. Đánh giá và rủi ro của scripts
+
+1. **Rủi ro**:
+   - Scripts có thể ghi đè lên các tệp đã tồn tại mà không có cảnh báo
+   - Thiếu cơ chế kiểm tra tệp đã được di chuyển có tương thích không
+
+2. **Đề xuất**:
+   - Bổ sung logic kiểm tra tệp tồn tại trước khi ghi đè
+   - Thêm options để dry-run scripts trước khi thực hiện thực tế
+
+## 6. Quản lý rủi ro chuyển đổi
+
+### 6.1. Backup Strategy
+
+1. **Tạo snapshot trước khi bắt đầu**
+   - Tạo bản sao hoàn chỉnh của dự án hiện tại
+   - Sử dụng git tag để đánh dấu phiên bản trước khi tái cấu trúc
+
+```bash
+#!/bin/bash
+# backup-project.sh
+
+# Tạo thư mục backup
+BACKUP_DATE=$(date +"%Y%m%d")
+BACKUP_DIR="RunOut_backup_${BACKUP_DATE}"
+
+echo "Creating backup in ${BACKUP_DIR}..."
+cp -r ./RunOut "${BACKUP_DIR}"
+
+# Nếu sử dụng git
+if [ -d "./RunOut/.git" ]; then
+  echo "Creating git tag for current state..."
+  cd ./RunOut
+  git tag -a "backup_${BACKUP_DATE}" -m "Backup before restructuring"
+  cd ..
+fi
+
+echo "Backup completed!"
+```
+
+2. **Backup sau mỗi giai đoạn lớn**
+   - Tạo snapshot sau mỗi giai đoạn di chuyển
+   - Lưu log của mỗi giai đoạn
+
+3. **Đánh giá và rủi ro của chiến lược backup**:
+   - Chiến lược backup chỉ tập trung vào code, không đề cập đến dữ liệu
+   - Chưa có điểm khôi phục rõ ràng nếu quá trình di chuyển gặp vấn đề
+
+4. **Đề xuất cải thiện**:
+   - Bổ sung kế hoạch backup và khôi phục cho database
+   - Thiết lập các "điểm an toàn" cụ thể (giai đoạn đã hoàn thành và kiểm tra) trước khi tiến hành giai đoạn tiếp theo
+
+### 6.2. Kế hoạch xử lý dữ liệu và database migration
+
+1. **Backup dữ liệu**
+   ```bash
+   # Tạo bản sao lưu đầy đủ của database trước khi bắt đầu
+   mongodump --uri="mongodb://username:password@host:port/database" --out=/backup/path
+   ```
+   - Lên lịch backup tự động hàng ngày trong quá trình di chuyển
+   - Lưu trữ bản sao lưu ở ít nhất 2 vị trí khác nhau
+
+2. **Chiến lược migration**
+   - Sử dụng schema version:
+     - Thêm trường schemaVersion vào mỗi collection
+     - Viết script migration cho mỗi phiên bản schema
+
+   ```javascript
+   // migrations/v1-to-v2.js
+   db.getCollection('users').find({schemaVersion: 1}).forEach(function(user) {
+     // Thực hiện các thay đổi
+     user.fullName = user.firstName + ' ' + user.lastName;
+     delete user.firstName;
+     delete user.lastName;
+     user.schemaVersion = 2;
+     
+     db.users.save(user);
+   });
+   ```
+   - Kiểm tra tính toàn vẹn dữ liệu sau mỗi migration
+
+### 6.3. Kiểm tra tính hoạt động
+
+1. **Kiểm tra API endpoints**
+   - Viết script để kiểm tra tất cả API endpoints
+   - So sánh response với phiên bản cũ
+
+```javascript
+// check-api-endpoints.js
+const axios = require('axios');
+const fs = require('fs');
+
+const OLD_API_BASE = 'http://localhost:3001/api';
+const NEW_API_BASE = 'http://localhost:3001/api/v1';
+
+// Danh sách các endpoints cần kiểm tra
+const endpoints = [
+  { method: 'GET', path: '/products' },
+  { method: 'GET', path: '/categories' },
+  // Thêm các endpoints khác
+];
+
+async function compareEndpoints() {
+  const results = [];
+
+  for (const endpoint of endpoints) {
+    try {
+      console.log(`Testing ${endpoint.method} ${endpoint.path}...`);
+      
+      // Gửi request đến API cũ
+      const oldResponse = await axios({
+        method: endpoint.method,
+        url: `${OLD_API_BASE}${endpoint.path}`,
+        // headers, data nếu cần
+      });
+      
+      // Gửi request đến API mới
+      const newResponse = await axios({
+        method: endpoint.method,
+        url: `${NEW_API_BASE}${endpoint.path}`,
+        // headers, data nếu cần
+      });
+      
+      // So sánh response
+      const isEquivalent = JSON.stringify(oldResponse.data) === JSON.stringify(newResponse.data);
+      
+      results.push({
+        endpoint: `${endpoint.method} ${endpoint.path}`,
+        status: isEquivalent ? 'PASS' : 'FAIL',
+        oldStatus: oldResponse.status,
+        newStatus: newResponse.status,
+      });
+      
+    } catch (error) {
+      results.push({
+        endpoint: `${endpoint.method} ${endpoint.path}`,
+        status: 'ERROR',
+        error: error.message,
+      });
+    }
+  }
+  
+  // Lưu kết quả vào file
+  fs.writeFileSync('./api-comparison-results.json', JSON.stringify(results, null, 2));
+  
+  // In báo cáo
+  console.log('\nAPI Comparison Results:');
+  console.log('=======================');
+  
+  const passed = results.filter(r => r.status === 'PASS').length;
+  const failed = results.filter(r => r.status === 'FAIL').length;
+  const errors = results.filter(r => r.status === 'ERROR').length;
+  
+  console.log(`Total endpoints: ${results.length}`);
+  console.log(`Passed: ${passed}`);
+  console.log(`Failed: ${failed}`);
+  console.log(`Errors: ${errors}`);
+  
+  if (failed > 0 || errors > 0) {
+    console.log('\nDetails of failed tests:');
+    results
+      .filter(r => r.status !== 'PASS')
+      .forEach(r => console.log(`- ${r.endpoint}: ${r.status} ${r.error ? `(${r.error})` : ''}`));
+  }
+}
+
+compareEndpoints();
+```
+
+2. **Kiểm tra giao diện người dùng**
+   - So sánh UI giữa phiên bản cũ và mới
+   - Đảm bảo các chức năng chính vẫn hoạt động
+
+### 6.4. Quy trình Kiểm tra A/B cho phiên bản mới
+
+1. **Thiết lập hệ thống song song**
+   - Duy trì hệ thống cũ hoạt động trong quá trình phát triển phiên bản mới
+   - Sử dụng feature flags để kiểm soát việc chuyển đổi từng chức năng
+   - Sử dụng proxy để định tuyến người dùng giữa phiên bản cũ và mới
+
+2. **Chiến lược phân phối lưu lượng**
+   - **Giai đoạn 1 - Internal testing**:
+     - 100% internal users sử dụng phiên bản mới
+     - 0% external users sử dụng phiên bản mới
+     - Thu thập phản hồi và sửa lỗi
+
+   - **Giai đoạn 2 - Canary release**:
+     - 100% internal users sử dụng phiên bản mới
+     - 5-10% external users sử dụng phiên bản mới
+     - Theo dõi metrics và lỗi
+
+   - **Giai đoạn 3 - Progressive rollout**:
+     - Tăng dần tỷ lệ người dùng được điều hướng đến phiên bản mới
+     - Theo dõi performance, errors, và user feedback
+     - Quay lại phiên bản cũ nếu phát hiện vấn đề nghiêm trọng
+
+   - **Giai đoạn 4 - Full rollout**:
+     - 100% users sử dụng phiên bản mới
+     - Duy trì khả năng rollback nhanh chóng
+
+### 6.5. Kế hoạch rollback chi tiết
+
+1. **Nguyên tắc chung**
+   - **Nhanh chóng**: Khả năng rollback trong vòng 15 phút
+   - **Đơn giản**: Quy trình rõ ràng, không phức tạp
+   - **Đáng tin cậy**: Đã được kiểm tra trước
+
+2. **Điểm quyết định rollback**
+
+   Xác định rõ các tình huống yêu cầu rollback:
+
+   - **High severity bugs**:
+     - Lỗi ảnh hưởng đến dữ liệu người dùng
+     - Lỗi bảo mật nghiêm trọng
+     - Lỗi crash ứng dụng hoặc khiến tính năng quan trọng không hoạt động
+
+   - **Performance degradation**:
+     - API response time tăng >50%
+     - Frontend load time tăng >50%
+     - CPU hoặc memory usage tăng đột biến
+
+   - **Phản hồi người dùng tiêu cực**:
+     - >10% người dùng báo cáo vấn đề với tính năng quan trọng
+     - Tỷ lệ bounce rate tăng đáng kể
+
+3. **Quy trình rollback cho Backend**
+
+   - **Rollback code**:
+     ```bash
+     # Quay lại commit/tag trước khi thực hiện thay đổi
+     git checkout [stable_tag]
+
+     # Rebuild và restart server
+     docker-compose -f docker-compose.prod.yml build server
+     docker-compose -f docker-compose.prod.yml up -d server
+     ```
+
+   - **Rollback database**:
+     ```bash
+     # Khôi phục database từ bản backup trước khi migration
+     mongorestore --uri="mongodb://username:password@host:port/database" --drop /path/to/backup
+
+     # Hoặc sử dụng script khôi phục schema
+     node scripts/rollback-db-changes.js
+     ```
+
+   - **Xác nhận rollback thành công**:
+     - Kiểm tra logs để đảm bảo server khởi động thành công
+     - Thực hiện smoke tests cho các API endpoints quan trọng
+     - Xác nhận schema database đã được khôi phục
+
+4. **Quy trình rollback cho Frontend**
+
+   - **Rollback code**:
+     ```bash
+     # Quay lại phiên bản stable
+     git checkout [stable_tag]
+
+     # Rebuild và deploy
+     docker-compose -f docker-compose.prod.yml build client
+     docker-compose -f docker-compose.prod.yml up -d client
+     ```
+
+   - **Sử dụng traffic routing**:
+     ```nginx
+     # Cấu hình Nginx để chuyển hướng lưu lượng về phiên bản cũ
+     server {
+         listen 80;
+         server_name example.com;
+         
+         location / {
+             proxy_pass http://old-frontend:3000;
+         }
+     }
+     ```
+
+   - **Xác nhận rollback thành công**:
+     - Kiểm tra các trang quan trọng hoạt động đúng
+     - Xác nhận thay đổi đã được áp dụng cho tất cả người dùng
+
+5. **Rollback khi chạy song song hai hệ thống**
+
+   Khi sử dụng chiến lược strangler pattern và chạy song song hai hệ thống:
+
+   ```nginx
+   # Trước khi chuyển đổi
+   location /products {
+       proxy_pass http://old-system/products;
+   }
+
+   # Sau khi chuyển đổi
+   location /products {
+       proxy_pass http://new-system/products;
+   }
+
+   # Rollback configuration
+   location /products {
+       proxy_pass http://old-system/products;
+   }
+   ```
+
+6. **Kịch bản rollback cho từng giai đoạn**
+
+   - **Giai đoạn 2: Di chuyển Backend**
+     - **Backup**: Database và code trước khi di chuyển
+     - **Rollback**: Khôi phục code từ git, restart service cũ
+     - **Verification**: API tests để xác nhận hệ thống hoạt động
+
+   - **Giai đoạn 3: Tạo Shared Components**
+     - **Backup**: Code trước khi tạo shared components
+     - **Rollback**: Khôi phục code từ git, quay lại import paths cũ
+     - **Verification**: Build và test để xác nhận không có lỗi
+
+   - **Giai đoạn 4: Di chuyển Frontend**
+     - **Backup**: Code frontend cũ
+     - **Rollback**: Khôi phục code từ git, deploy phiên bản cũ
+     - **Verification**: UI tests để xác nhận giao diện và chức năng
+
+   - **Giai đoạn 5: Cấu hình Docker và CI/CD**
+     - **Backup**: Cấu hình deployment cũ
+     - **Rollback**: Khôi phục cấu hình deployment, restart services
+     - **Verification**: Kiểm tra pipeline và deployment
+
+7. **Theo dõi sau rollback**
+
+   - **Thu thập thông tin**:
+     - Lý do rollback
+     - Các lỗi đã phát hiện
+     - Ảnh hưởng đến người dùng
+     - Thời gian downtime (nếu có)
+
+   - **Phân tích nguyên nhân**:
+     - Tổ chức meeting để phân tích nguyên nhân gốc rễ
+     - Xác định điểm yếu trong quy trình phát triển hoặc kiểm tra
+
+   - **Cập nhật kế hoạch di chuyển**:
+     - Điều chỉnh kế hoạch dựa trên bài học kinh nghiệm
+     - Cập nhật test cases để phát hiện lỗi tương tự trong tương lai
+     - Tăng cường kiểm tra cho các thành phần tương tự
+
+   - **Tái thử nghiệm**:
+     - Sửa lỗi trên môi trường dev/staging
+     - Thực hiện kiểm tra kỹ lưỡng hơn
+     - Lên kế hoạch deployment mới với monitoring cẩn thận hơn
+
+8. **Lưu ý quan trọng**
+   - Đảm bảo tất cả thành viên team đều biết và có thể thực hiện quy trình rollback
+   - Lưu trữ scripts rollback trong repository và đảm bảo chúng luôn được cập nhật
+   - Thực hành rollback định kỳ để đảm bảo quy trình hoạt động đúng
+   - Tài liệu hóa mỗi lần rollback để rút kinh nghiệm cho tương lai
+
+### 6.6. Xử lý code không tương thích
+
+1. **Chiến lược tạm thời**
+   - Tạo adapter tạm thời để duy trì tương thích
+   - Đánh dấu rõ code cần refactor trong tương lai
+
+2. **Refactoring từng phần**
+   - Thay vì chuyển đổi ngay, duy trì code cũ cho đến khi code mới sẵn sàng
+   - Sử dụng feature flags để chuyển đổi dần dần
+
+## 7. Tài liệu và hướng dẫn
+
+### 7.1. Tài liệu cấu trúc thư mục mới
+
+Tạo file `steve/docs/architecture/folder-structure-guide.md`:
+
+```markdown
+# Hướng dẫn cấu trúc thư mục
+
+## Tổng quan
+
+Dự án RunOut được tổ chức theo mô hình monorepo với các ứng dụng riêng biệt và các thành phần chung.
+```
+
+### 7.2. Quy trình phát triển
+
+Tạo file `steve/docs/development/development-guide.md`:
+
+```markdown
+# Hướng dẫn phát triển
+
+## Quy trình phát triển
+
+1. **Setup môi trường**
+   - Clone repository
+   - Cài đặt dependencies
+   - Cấu hình môi trường
+
+2. **Phát triển**
+   - Coding standards
+   - Git workflow
+   - Review process
+
+3. **Testing**
+   - Unit testing
+   - Integration testing
+   - E2E testing
+
+4. **Deployment**
+   - Staging
+   - Production
+```
+
+### 7.3. Hướng dẫn di chuyển và chuyển đổi
+
+Tạo file `steve/docs/migration/migration-guide.md`:
+
+```markdown
+# Hướng dẫn di chuyển
+
+## Di chuyển từ cấu trúc cũ sang cấu trúc mới
+
+### Backend
+
+1. **Models**
+   - Không thay đổi cấu trúc, chỉ di chuyển
+   - Cập nhật imports nếu cần
+
+2. **Controllers**
+   - Di chuyển logic xử lý
+   - Cập nhật paths và imports
+
+3. **Routes**
+   - Di chuyển và cập nhật các routes
+   - Đảm bảo API endpoints không thay đổi
+
+### Frontend
+
+1. **Chuyển đổi AngularJS sang React**
+   - Phân tích component AngularJS
+   - Tạo tương đương trong React
+   - Chuyển đổi state management
+```
+
+## 8. Môi trường phát triển
+
+### 8.1. Docker setup
+
+Tạo file `steve/config/docker/docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+    networks:
+      - app-network
+
+  server:
+    build:
+      context: ../../apps/server
+      dockerfile: Dockerfile.dev
+    container_name: server
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongodb
+    volumes:
+      - ../../apps/server:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${MONGO_ROOT_USER}
+      - DB_PASS=${MONGO_ROOT_PASSWORD}
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ../../apps/client
+      dockerfile: Dockerfile.dev
+    container_name: client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    volumes:
+      - ../../apps/client:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001/api/v1
+    networks:
+      - app-network
+
+  admin:
+    build:
+      context: ../../apps/admin
+      dockerfile: Dockerfile.dev
+    container_name: admin
+    ports:
+      - "3002:3002"
+    depends_on:
+      - server
+    volumes:
+      - ../../apps/admin:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001/api/v1
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+```
+
+Tạo file `steve/apps/server/Dockerfile.dev`:
+
+```dockerfile
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3001
+
+CMD ["npm", "run", "dev"]
+```
+
+Tạo file `steve/apps/client/Dockerfile.dev`:
+
+```dockerfile
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+```
+
+### 8.2. Development workflows
+
+Tạo file `steve/docs/development/workflow.md`:
+
+```markdown
+# Development Workflow
+
+## Local Development
+
+1. Start the development environment:
+   ```
+   cd steve
+   docker-compose -f config/docker/docker-compose.yml up
+   ```
+
+2. Access the applications:
+   - Client: http://localhost:3000
+   - Admin: http://localhost:3002
+   - API: http://localhost:3001/api/v1
+
+## Code Quality and Standards
+
+1. Run linting:
+   ```
+   npm run lint
+   ```
+
+2. Run tests:
+   ```
+   npm run test
+   ```
+
+## Git Workflow
+
+1. Create feature branch:
+   ```
+   git checkout -b feature/feature-name
+   ```
+
+2. Make changes and commit:
+   ```
+   git add .
+   git commit -m "feat: add new feature"
+   ```
+
+3. Push changes:
+   ```
+   git push origin feature/feature-name
+   ```
+
+4. Create pull request and request review
+
+5. After approval, merge to main branch
+
+## Deployment Workflow
+
+1. Merge changes to main branch
+
+2. CI/CD pipeline will:
+   - Run tests
+   - Build Docker images
+   - Push to registry
+   - Deploy to staging
+
+3. After staging verification, deploy to production
+```
+
+### 8.3. Testing Infrastructure
+
+Tạo file `steve/docs/development/testing-guide.md`:
+
+```markdown
+# Testing Guide
+
+## Testing Layers
+
+1. **Unit Tests**
+   - Test individual functions and components
+   - Mock external dependencies
+
+2. **Integration Tests**
+   - Test interaction between components
+   - Test API endpoints
+
+3. **End-to-End Tests**
+   - Test complete user flows
+   - Simulate real user behavior
+
+## Test Setup
+
+### Backend Testing
+
+1. Setup test environment in `steve/apps/server/tests`:
+
+```javascript
+// setup.js
+const mongoose = require('mongoose');
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
+let mongoServer;
+
+// Setup MongoDB in-memory server
+before(async () => {
+  mongoServer = await MongoMemoryServer.create();
+  const mongoUri = mongoServer.getUri();
+  await mongoose.connect(mongoUri);
+});
+
+// Clean up after tests
+after(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
+});
+
+// Clean up database between tests
+afterEach(async () => {
+  const collections = mongoose.connection.collections;
+  for (const key in collections) {
+    const collection = collections[key];
+    await collection.deleteMany({});
+  }
+});
+```
+
+2. Example API test:
+
+```javascript
+// products.test.js
+const request = require('supertest');
+const { expect } = require('chai');
+const app = require('../server');
+
+describe('Products API', () => {
+  it('should return list of products', async () => {
+    const res = await request(app)
+      .get('/api/v1/products')
+      .expect(200);
+    
+    expect(res.body).to.be.an('array');
+  });
+  
+  it('should create a new product', async () => {
+    const newProduct = {
+      name: 'Test Product',
+      price: 99.99,
+      description: 'A test product',
+      category: 'test-category',
+    };
+    
+    const res = await request(app)
+      .post('/api/v1/products')
+      .send(newProduct)
+      .expect(201);
+    
+    expect(res.body).to.have.property('_id');
+    expect(res.body.name).to.equal(newProduct.name);
+  });
+});
+```
+
+### Frontend Testing
+
+1. Component testing with React Testing Library and Vitest:
+
+```javascript
+// Button.test.jsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import Button from './Button';
+
+describe('Button Component', () => {
+  it('renders correctly', () => {
+    render(<Button>Click Me</Button>);
+    expect(screen.getByText('Click Me')).toBeInTheDocument();
+  });
+  
+  it('calls onClick handler when clicked', () => {
+    const handleClick = vi.fn();
+    render(<Button onClick={handleClick}>Click Me</Button>);
+    fireEvent.click(screen.getByText('Click Me'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+## Continuous Integration
+
+Setup GitHub Actions for automated testing in `.github/workflows/test.yml`:
+
+```yaml
+name: Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Install dependencies
+      run: |
+        cd steve
+        npm install
+        
+    - name: Run backend tests
+      run: |
+        cd steve/apps/server
+        npm test
+        
+    - name: Run frontend tests
+      run: |
+        cd steve/apps/client
+        npm test
+```
+```
+
+## 9. Chiến lược chuyển đổi từ AngularJS sang React
+
+### 9.1. Phân tích và mapping component
+
+| AngularJS Component | React Component | Mức độ phức tạp | Ưu tiên |
+|---------------------|-----------------|-----------------|---------|
+| LoginController | LoginPage | Trung bình | Cao |
+| HomeController | HomePage | Cao | Cao |
+| ProductController | ProductsPage | Cao | Cao |
+| DetailController | ProductDetailPage | Cao | Cao |
+| CartController | CartPage | Cao | Cao |
+| CheckoutController | CheckoutPage | Cao | Cao |
+| ProfileController | ProfilePage | Trung bình | Trung bình |
+| UserOrderController | OrdersPage | Trung bình | Trung bình |
+| UserWhishlistController | WishlistPage | Thấp | Thấp |
+
+### 9.2. Chuyển đổi state management
+
+1. **AngularJS scope** → **React state/context**
+   - Scope variables → useState/useReducer
+   - Scope functions → Event handlers
+
+2. **AngularJS services** → **React context và custom hooks**
+   - AuthService → useAuth hook và AuthContext
+   - CartService → useCart hook và CartContext
+   - APIService → useAPI hook
+
+3. **AngularJS directives** → **React components**
+   - Custom directives → Function components
+   - Structural directives (ng-if, ng-for) → Conditional rendering và .map()
+
+### 9.3. Quy trình chuyển đổi
+
+1. **Phân tích component AngularJS**
+   - Xác định state và props
+   - Xác định lifecycle methods
+   - Xác định event handlers
+
+2. **Tạo component React tương đương**
+   - Tạo functional component với hooks
+   - Implement state và effects
+   - Implement event handlers
+
+3. **Kiểm tra tương đương**
+   - So sánh UI giữa phiên bản AngularJS và React
+   - Kiểm tra luồng dữ liệu và behavior
+   - Fix các sai khác
+
+### 9.4. Ví dụ chuyển đổi
+
+#### AngularJS Controller:
+```javascript
+app.controller('ProductController', ['$scope', 'APIService', function($scope, APIService) {
+  $scope.products = [];
+  $scope.loading = true;
+  $scope.error = null;
+  
+  $scope.loadProducts = function() {
+    APIService.getProducts()
+      .then(function(response) {
+        $scope.products = response.data;
+        $scope.loading = false;
+      })
+      .catch(function(error) {
+        $scope.error = error.message;
+        $scope.loading = false;
+      });
+  };
+  
+  $scope.addToCart = function(product) {
+    APIService.addToCart(product._id)
+      .then(function() {
+        alert('Added to cart!');
+      })
+      .catch(function(error) {
+        $scope.error = error.message;
+      });
+  };
+  
+  $scope.loadProducts();
+}]);
+```
+
+#### React Component:
+```jsx
+import React, { useState, useEffect } from 'react';
+import { useAPI } from '../hooks/useAPI';
+import { useCart } from '../hooks/useCart';
+import ProductCard from '../components/ProductCard';
+import Loader from '../components/common/Loader';
+import ErrorMessage from '../components/common/ErrorMessage';
+
+const ProductsPage = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { getProducts } = useAPI();
+  const { addToCart } = useCart();
+  
+  const loadProducts = async () => {
+    try {
+      const data = await getProducts();
+      setProducts(data);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+  
+  const handleAddToCart = async (productId) => {
+    try {
+      await addToCart(productId);
+      alert('Added to cart!');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+  
+  useEffect(() => {
+    loadProducts();
+  }, []);
+  
+  if (loading) return <Loader />;
+  if (error) return <ErrorMessage message={error} />;
+  
+  return (
+    <div className="products-page">
+      <h1>Our Products</h1>
+      <div className="products-grid">
+        {products.map(product => (
+          <ProductCard 
+            key={product._id}
+            product={product}
+            onAddToCart={() => handleAddToCart(product._id)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductsPage;
+```
+
+### 9.5. Chiến lược Strangler Pattern
+
+1. **Nguyên tắc Strangler Pattern**
+   - Chuyển đổi từng phần nhỏ của ứng dụng thay vì chuyển đổi toàn bộ
+   - Sử dụng reverse proxy để định tuyến request giữa hệ thống cũ và mới
+   - Dần dần chuyển đổi các chức năng từ cũ sang mới
+
+2. **Các bước thực hiện**
+   - Thiết lập reverse proxy (nginx) để định tuyến request
+   - Xác định các chức năng độc lập có thể chuyển đổi trước
+   - Chuyển đổi từng chức năng:
+     - Phát triển chức năng trong hệ thống mới
+     - Kiểm tra kỹ lưỡng
+     - Cấu hình proxy để chuyển người dùng sang chức năng mới
+     - Thu thập phản hồi và theo dõi lỗi
+   - Lặp lại quy trình cho đến khi toàn bộ hệ thống được chuyển đổi
+
+## 10. Phân tích rủi ro và kế hoạch giảm thiểu
+
+### 10.1. Rủi ro về dữ liệu và tương thích API
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Mất dữ liệu trong quá trình migration** | Cao | Trung bình | • Backup database trước mỗi giai đoạn<br>• Tạo strategy để khôi phục dữ liệu<br>• Thực hiện migration trên bản sao trước khi áp dụng vào production |
+| **API endpoints không tương thích** | Cao | Cao | • Đảm bảo API signatures không thay đổi<br>• Tạo API version mới song song với phiên bản cũ<br>• Sử dụng API gateway để định tuyến requests |
+| **Schema database thay đổi** | Trung bình | Cao | • Lưu version schema trong database<br>• Viết migration scripts có khả năng rollback<br>• Test migration trên staging trước |
+
+### 10.2. Rủi ro về kỹ thuật và môi trường
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Dependencies không tương thích** | Trung bình | Cao | • Audit dependencies trước khi di chuyển<br>• Lock versions<br>• Sử dụng nvm/Docker để quản lý môi trường |
+| **Performance degradation** | Cao | Trung bình | • Benchmark trước và sau mỗi giai đoạn<br>• Thiết lập monitoring<br>• Có tiêu chí cụ thể để quyết định rollback |
+| **Docker container không hoạt động** | Trung bình | Thấp | • Test Docker setup trên nhiều môi trường<br>• Đảm bảo Docker compose có health checks<br>• Chuẩn bị fallback plan |
+
+### 10.3. Rủi ro về chuyển đổi UI và UX
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Giao diện người dùng thay đổi** | Cao | Cao | • Chụp screenshot UI cũ để so sánh<br>• Thực hiện A/B testing<br>• Thu thập phản hồi từ người dùng nội bộ trước<br>• Cung cấp hướng dẫn về UI mới cho người dùng |
+| **Mất chức năng trong quá trình chuyển đổi** | Cao | Trung bình | • Tạo danh sách đầy đủ chức năng hiện tại<br>• Viết test cases cho mỗi chức năng<br>• Thực hiện regression testing sau mỗi giai đoạn |
+| **Độ trễ trong quá trình chuyển đổi React** | Trung bình | Cao | • Sử dụng React Developer Tools để phân tích re-renders<br>• Áp dụng các pattern tối ưu hóa như React.memo, useMemo<br>• Thực hiện code splitting và lazy loading |
+
+### 10.4. Rủi ro về quản lý dự án và thời gian
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Vượt quá thời gian dự kiến** | Cao | Cao | • Thêm buffer 20-30% cho mỗi giai đoạn<br>• Chia nhỏ công việc thành các task có thể hoàn thành trong 1-2 ngày<br>• Đặt các milestone rõ ràng và kiểm tra tiến độ hàng ngày |
+| **Thiếu tài nguyên phát triển** | Trung bình | Trung bình | • Xác định rõ các kỹ năng cần thiết trước khi bắt đầu<br>• Chuẩn bị tài liệu đào tạo nhanh<br>• Ưu tiên các thành phần quan trọng nhất trước |
+| **Scope creep (mở rộng phạm vi)** | Cao | Cao | • Xác định rõ phạm vi từ đầu<br>• Chỉ chấp nhận thay đổi quan trọng trong quá trình di chuyển<br>• Lên kế hoạch cho các cải tiến trong phase 2 sau khi di chuyển hoàn tất |
+
+### 10.5. Rủi ro về hệ thống đang hoạt động
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Downtime khi chuyển đổi** | Cao | Trung bình | • Lên kế hoạch chuyển đổi vào thời điểm ít người dùng<br>• Sử dụng Blue-Green deployment<br>• Thông báo trước cho người dùng về lịch bảo trì |
+| **# Kế hoạch tái cấu trúc dự án RunOut
+
+## 1. Tổng quan dự án
+
+### 1.1. Mục tiêu
+Tái cấu trúc dự án RunOut từ cấu trúc hiện tại (phức tạp và trùng lặp) sang một cấu trúc thư mục mới, hiện đại và có tổ chức hơn trong thư mục `steve/`.
+
+### 1.2. Phạm vi
+- Chuyển đổi từ AngularJS (Admin, User) sang React (client)
+- Tái cấu trúc Backend Express.js
+- Thiết lập shared components, validators và utilities
+- Cấu hình và tài liệu
+
+### 1.3. Định hướng công nghệ
+- **Backend**: Express.js
+- **Frontend**: React + Tailwind CSS
+- **Môi trường**: Docker
+- **Database**: MongoDB
+- **Testing**: Jest, React Testing Library, Cypress
+
+## 2. Phân tích hiện trạng và xác định vấn đề
+
+### 2.1. Cấu trúc hiện tại
+Dự án RunOut hiện tại có cấu trúc phức tạp với nhiều thư mục chồng chéo và trùng lặp:
+
+- **Admin/**: Dashboard quản trị sử dụng AngularJS
+- **User/**: Frontend người dùng sử dụng AngularJS
+- **Server/**: Backend Express.js
+- **client/**: Phiên bản React mới (đang phát triển)
+- **src/**: Trùng lặp với client/src, cũng sử dụng React
+- **tools/**: Các công cụ hỗ trợ phát triển
+- **steve/**: Cấu trúc mới đang xây dựng
+
+### 2.2. Vấn đề chính
+
+1. **Trùng lặp code**:
+   - Có hai thư mục frontend React (`src/` và `client/src/`)
+   - Validators được lặp lại ở nhiều nơi
+   - Nhiều service trùng lặp với chức năng tương tự
+
+2. **Công nghệ không nhất quán**:
+   - AngularJS (Admin và User)
+   - React (client và src)
+   - Thiếu các adapter và patterns chung
+
+3. **Quản lý môi trường kém**:
+   - Các file .env phân tán ở nhiều vị trí
+   - Thiếu cấu hình Docker nhất quán
+
+4. **Tài liệu phân tán**:
+   - Thiếu tài liệu tập trung
+   - Thiếu hướng dẫn phát triển chuẩn
+
+5. **Thiếu infrastructure testing**:
+   - Không có cấu trúc testing rõ ràng
+   - Thiếu automation tests
+
+## 3. Cấu trúc mục tiêu
+
+### 3.1. Backend Express.js
+
+```
+steve/apps/server/
+├── config/           # Cấu hình đặc thù cho server
+├── configs/          # Di chuyển từ Server/configs
+├── controllers/      # Di chuyển từ Server/controllers
+├── middlewares/      # Di chuyển từ Server/middlewares
+├── models/           # Di chuyển từ Server/models
+├── routes/           # Di chuyển từ Server/routes
+├── utils/            # Di chuyển từ Server/utils
+├── server.js         # Entry point
+├── Dockerfile.prod   # Production Docker
+├── .env              # Biến môi trường
+├── package.json      # Dependencies
+└── tests/            # Unit và integration tests
+```
+
+### 3.2. Frontend React + Tailwind CSS
+
+```
+steve/apps/client/
+├── config/           # Cấu hình webpack, babel, etc.
+├── public/           # Static assets
+├── src/
+│   ├── assets/       # Images, fonts, etc.
+│   ├── components/   # UI components
+│   │   ├── common/   # Shared components
+│   │   ├── features/ # Feature-specific components
+│   │   └── layout/   # Layout components
+│   ├── hooks/        # Custom React hooks
+│   ├── pages/        # Page components
+│   ├── services/     # API communication
+│   ├── context/      # React context
+│   ├── utils/        # Utility functions
+│   ├── App.jsx       # Main App component
+│   └── index.jsx     # Entry point
+├── tailwind.config.js # Tailwind config
+├── Dockerfile.prod    # Production Docker
+├── .env.development   # Development env vars
+├── .env.production    # Production env vars
+└── package.json       # Dependencies
+```
+
+### 3.3. Shared components, validators, utilities
+
+```
+steve/common/
+├── services/         # Shared services
+│   └── api/          # API clients
+│       ├── auth-service/
+│       ├── order-service/
+│       ├── product-service/
+│       └── user-service/
+├── validators/       # Shared validators
+├── utils/            # Shared utilities
+└── types/            # TypeScript type definitions
+```
+
+### 3.4. Cấu hình và tài liệu
+
+```
+steve/config/
+├── docker/           # Docker configurations
+├── env/              # Environment templates
+├── lint/             # Linting configurations
+└── scripts/          # Utility scripts
+
+steve/docs/
+├── api/              # API documentation
+├── architecture/     # Architecture documentation
+├── development/      # Development guides
+├── migration/        # Migration guides
+└── setup/            # Setup instructions
+```
+
+### 3.5. Rủi ro trong cấu trúc mục tiêu
+
+1. **Thư mục steve/common**:
+   - Có thể gặp vấn đề về kết nối với các ứng dụng riêng biệt nếu không có cơ chế import/export phù hợp
+   
+2. **Đề xuất**:
+   - Cần có chiến lược rõ ràng cho việc import các thành phần từ common vào các ứng dụng
+   - Có thể sử dụng npm workspaces hoặc symlinks
+
+## 4. Kế hoạch di chuyển từng bước
+
+### 4.1. Giai đoạn 1: Thiết lập cấu trúc thư mục và môi trường (1-2 ngày)
+
+1. **Tạo cấu trúc thư mục cơ bản**
+   - Tạo các thư mục còn thiếu trong `steve/`
+   - Thiết lập các file cấu hình Docker, ESLint, Prettier
+
+2. **Thiết lập môi trường phát triển**
+   - Tạo Docker Compose cho development
+   - Tạo các file .env mẫu
+   - Cấu hình ESLint và Prettier
+
+### 4.2. Giai đoạn 2: Di chuyển Backend (2-3 ngày)
+
+1. **Di chuyển cơ sở dữ liệu và models**
+   - Di chuyển models từ `Server/models/` sang `steve/apps/server/models/`
+   - Đảm bảo tương thích và nhất quán
+
+2. **Di chuyển controllers và routes**
+   - Di chuyển controllers từ `Server/controllers/` sang `steve/apps/server/controllers/`
+   - Di chuyển routes từ `Server/routes/` sang `steve/apps/server/routes/`
+   - Kiểm tra tính đúng đắn của API endpoints
+
+3. **Di chuyển middlewares và utilities**
+   - Di chuyển middlewares từ `Server/middlewares/` sang `steve/apps/server/middlewares/`
+   - Di chuyển utilities từ `Server/utils/` sang `steve/apps/server/utils/`
+
+4. **Cập nhật dependencies và scripts**
+   - Cập nhật package.json với các dependencies cần thiết
+   - Tạo scripts để khởi động server
+
+### 4.3. Giai đoạn 3: Tạo Shared Components và Validators (3-4 ngày)
+
+1. **Tạo shared validators**
+   - Di chuyển và tổng hợp validators từ các thư mục khác nhau
+   - Tạo các validators mới nếu cần thiết
+
+2. **Tạo shared services**
+   - Thiết kế lại các service để tái sử dụng
+   - Tạo các service adapter
+
+3. **Tạo shared utilities**
+   - Di chuyển và tổng hợp utilities từ các thư mục khác nhau
+   - Tạo các utility mới nếu cần thiết
+
+### 4.4. Giai đoạn 4: Di chuyển và chuyển đổi Frontend (5-7 ngày)
+
+1. **Di chuyển React components từ client/src**
+   - Phân tích và tái cấu trúc thành các component có tổ chức
+   - Chuyển sang Tailwind CSS nếu cần
+
+2. **Chuyển đổi AngularJS từ User/ sang React**
+   - Phân tích từng trang và chức năng trong AngularJS
+   - Viết lại bằng React và Tailwind CSS
+   - Giữ nguyên chức năng và luồng dữ liệu
+
+3. **Tích hợp với shared services và validators**
+   - Cập nhật các component để sử dụng shared services
+   - Áp dụng shared validators cho các form
+
+### 4.5. Giai đoạn 5: Cấu hình Docker và CI/CD (2-3 ngày)
+
+1. **Tạo Dockerfiles cho mỗi service**
+   - Tạo Dockerfile.dev và Dockerfile.prod cho từng service
+   - Tối ưu hóa build time và image size
+
+2. **Tạo Docker Compose cho toàn bộ stack**
+   - Cấu hình các service để làm việc cùng nhau
+   - Thiết lập mạng và volumes
+
+3. **Thiết lập CI/CD workflow**
+   - Cấu hình GitHub Actions hoặc GitLab CI
+   - Tự động hóa testing, building và deployment
+
+### 4.6. Giai đoạn 6: Tài liệu và Testing (3-4 ngày)
+
+1. **Viết tài liệu**
+   - Tài liệu API
+   - Hướng dẫn phát triển
+   - Quy trình làm việc
+
+2. **Thiết lập testing infrastructure**
+   - Unit tests cho backend
+   - Component tests cho frontend
+   - Integration tests cho toàn bộ hệ thống
+
+### 4.7. Đánh giá và rủi ro của kế hoạch
+
+1. **Rủi ro thời gian**:
+   - Thời gian ước tính chưa tính đến các vấn đề phát sinh
+   - Chưa đề cập đến việc xử lý dữ liệu đang hoạt động (nếu có)
+
+2. **Đề xuất**:
+   - Thêm buffer time 20-30% cho mỗi giai đoạn để xử lý vấn đề phát sinh
+   - Bổ sung kế hoạch kiểm tra tương thích dữ liệu sau mỗi giai đoạn
+
+## 5. Scripts di chuyển tự động
+
+### 5.1. Script di chuyển backend
+
+```bash
+#!/bin/bash
+# move-backend.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/apps/server/configs
+mkdir -p ./steve/apps/server/controllers
+mkdir -p ./steve/apps/server/middlewares
+mkdir -p ./steve/apps/server/models
+mkdir -p ./steve/apps/server/routes
+mkdir -p ./steve/apps/server/utils
+mkdir -p ./steve/apps/server/tests
+
+# Di chuyển configs
+echo "Moving configs..."
+cp -r ./RunOut/Server/configs/* ./steve/apps/server/configs/
+
+# Di chuyển controllers
+echo "Moving controllers..."
+cp -r ./RunOut/Server/controllers/* ./steve/apps/server/controllers/
+
+# Di chuyển middlewares
+echo "Moving middlewares..."
+cp -r ./RunOut/Server/middlewares/* ./steve/apps/server/middlewares/
+
+# Di chuyển models
+echo "Moving models..."
+cp -r ./RunOut/Server/models/* ./steve/apps/server/models/
+
+# Di chuyển routes
+echo "Moving routes..."
+cp -r ./RunOut/Server/routes/* ./steve/apps/server/routes/
+
+# Di chuyển utils
+echo "Moving utils..."
+cp -r ./RunOut/Server/utils/* ./steve/apps/server/utils/
+
+# Di chuyển server.js và các file cấu hình
+echo "Moving server.js and configuration files..."
+cp ./RunOut/Server/server.js ./steve/apps/server/
+cp ./RunOut/Server/.env ./steve/apps/server/
+cp ./RunOut/Server/package.json ./steve/apps/server/
+
+echo "Backend migration completed!"
+```
+
+### 5.2. Script di chuyển và tổng hợp validators
+
+```bash
+#!/bin/bash
+# move-validators.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/common/validators
+
+# 1. Di chuyển validators từ server
+echo "Moving validators from Server..."
+cp -r ./RunOut/Server/middlewares/validators/* ./steve/common/validators/
+
+# 2. Di chuyển validators từ client
+echo "Moving validators from client..."
+if [ -d "./RunOut/client/src/validators" ]; then
+  for file in ./RunOut/client/src/validators/*.js; do
+    if [ -f "$file" ]; then
+      filename=$(basename "$file")
+      # Kiểm tra xem file đã tồn tại trong thư mục đích chưa
+      if [ -f "./steve/common/validators/$filename" ]; then
+        echo "Merging $filename..."
+        # Kế hoạch: Nếu file đã tồn tại, ta sẽ cần phân tích và hợp nhất thủ công
+        cp "$file" "./steve/common/validators/${filename%.js}.client.js"
+      else
+        echo "Copying $filename..."
+        cp "$file" "./steve/common/validators/"
+      fi
+    fi
+  done
+fi
+
+# 3. Kiểm tra và hợp nhất các validator trùng lặp
+echo "Checking for duplicate validators..."
+# Logic để phát hiện và hợp nhất validators trùng lặp
+
+echo "Validators migration completed!"
+```
+
+### 5.3. Script chuẩn hóa các file cấu hình
+
+```bash
+#!/bin/bash
+# standardize-configs.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/config/env
+mkdir -p ./steve/config/lint
+
+# Di chuyển các file .env từ nhiều vị trí và chuẩn hóa
+echo "Standardizing .env files..."
+
+# Di chuyển .env từ Server
+if [ -f "./RunOut/Server/.env" ]; then
+  cp "./RunOut/Server/.env" "./steve/config/env/.env.server"
+fi
+
+# Di chuyển .env từ client
+if [ -f "./RunOut/client/.env.development" ]; then
+  cp "./RunOut/client/.env.development" "./steve/config/env/.env.development"
+fi
+
+if [ -f "./RunOut/client/.env.production" ]; then
+  cp "./RunOut/client/.env.production" "./steve/config/env/.env.production"
+fi
+
+# Di chuyển các file cấu hình ESLint và Prettier
+echo "Moving linting configurations..."
+if [ -f "./RunOut/.eslintrc.js" ]; then
+  cp "./RunOut/.eslintrc.js" "./steve/config/lint/"
+fi
+
+if [ -f "./RunOut/.prettierrc" ]; then
+  cp "./RunOut/.prettierrc" "./steve/config/lint/"
+fi
+
+# Tạo file .env.example
+echo "Creating .env.example template..."
+cat > "./steve/config/env/.env.example" << EOL
+# API Configuration
+API_PORT=3001
+API_HOST=localhost
+API_PREFIX=/api/v1
+
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=27017
+DB_NAME=runout
+DB_USER=
+DB_PASS=
+
+# JWT Configuration
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=30d
+
+# Cloud Storage
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# Email Configuration
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_USER=
+EMAIL_PASS=
+EMAIL_FROM=
+
+# Frontend URLs
+CLIENT_URL=http://localhost:3000
+ADMIN_URL=http://localhost:3002
+EOL
+
+echo "Configuration standardization completed!"
+```
+
+### 5.4. Script di chuyển React frontend
+
+```bash
+#!/bin/bash
+# move-react-frontend.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/apps/client/src/assets
+mkdir -p ./steve/apps/client/src/components/common
+mkdir -p ./steve/apps/client/src/components/features
+mkdir -p ./steve/apps/client/src/components/layout
+mkdir -p ./steve/apps/client/src/context
+mkdir -p ./steve/apps/client/src/hooks
+mkdir -p ./steve/apps/client/src/pages
+mkdir -p ./steve/apps/client/src/services/api
+mkdir -p ./steve/apps/client/src/utils
+mkdir -p ./steve/apps/client/public
+
+# Chọn source React nào để di chuyển (ưu tiên client/src)
+if [ -d "./RunOut/client/src" ]; then
+  SOURCE_DIR="./RunOut/client/src"
+  echo "Using client/src as source..."
+elif [ -d "./RunOut/src" ]; then
+  SOURCE_DIR="./RunOut/src"
+  echo "Using src as source..."
+else
+  echo "No React source directory found!"
+  exit 1
+fi
+
+# Di chuyển các file và thư mục cơ bản
+echo "Moving basic files and directories..."
+cp "${SOURCE_DIR}/App.jsx" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/App.css" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/index.jsx" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/index.css" "./steve/apps/client/src/" 2>/dev/null || :
+
+# Di chuyển components
+echo "Moving components..."
+cp -r "${SOURCE_DIR}/components/common"/* "./steve/apps/client/src/components/common/" 2>/dev/null || :
+cp -r "${SOURCE_DIR}/components/features"/* "./steve/apps/client/src/components/features/" 2>/dev/null || :
+cp -r "${SOURCE_DIR}/components/layout"/* "./steve/apps/client/src/components/layout/" 2>/dev/null || :
+
+# Di chuyển contexts
+echo "Moving contexts..."
+cp -r "${SOURCE_DIR}/context"/* "./steve/apps/client/src/context/" 2>/dev/null || :
+
+# Di chuyển hooks
+echo "Moving hooks..."
+cp -r "${SOURCE_DIR}/hooks"/* "./steve/apps/client/src/hooks/" 2>/dev/null || :
+
+# Di chuyển pages
+echo "Moving pages..."
+cp -r "${SOURCE_DIR}/pages"/* "./steve/apps/client/src/pages/" 2>/dev/null || :
+
+# Di chuyển services
+echo "Moving services..."
+cp -r "${SOURCE_DIR}/services/api"/* "./steve/apps/client/src/services/api/" 2>/dev/null || :
+
+# Di chuyển utils
+echo "Moving utils..."
+cp -r "${SOURCE_DIR}/utils"/* "./steve/apps/client/src/utils/" 2>/dev/null || :
+
+# Di chuyển package.json
+echo "Moving package.json..."
+if [ -f "./RunOut/client/package.json" ]; then
+  cp "./RunOut/client/package.json" "./steve/apps/client/"
+else
+  # Tạo package.json cơ bản nếu không có
+  cat > "./steve/apps/client/package.json" << EOL
+{
+  "name": "runout-client",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "axios": "^1.3.5",
+    "formik": "^2.2.9",
+    "yup": "^1.1.1",
+    "tailwindcss": "^3.3.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "postcss": "^8.4.21",
+    "vite": "^4.2.1",
+    "vitest": "^0.30.1"
+  }
+}
+EOL
+fi
+
+echo "React frontend migration completed!"
+```
+
+### 5.5. Đánh giá và rủi ro của scripts
+
+1. **Rủi ro**:
+   - Scripts có thể ghi đè lên các tệp đã tồn tại mà không có cảnh báo
+   - Thiếu cơ chế kiểm tra tệp đã được di chuyển có tương thích không
+
+2. **Đề xuất**:
+   - Bổ sung logic kiểm tra tệp tồn tại trước khi ghi đè
+   - Thêm options để dry-run scripts trước khi thực hiện thực tế
+
+## 6. Quản lý rủi ro chuyển đổi
+
+### 6.1. Backup Strategy
+
+1. **Tạo snapshot trước khi bắt đầu**
+   - Tạo bản sao hoàn chỉnh của dự án hiện tại
+   - Sử dụng git tag để đánh dấu phiên bản trước khi tái cấu trúc
+
+```bash
+#!/bin/bash
+# backup-project.sh
+
+# Tạo thư mục backup
+BACKUP_DATE=$(date +"%Y%m%d")
+BACKUP_DIR="RunOut_backup_${BACKUP_DATE}"
+
+echo "Creating backup in ${BACKUP_DIR}..."
+cp -r ./RunOut "${BACKUP_DIR}"
+
+# Nếu sử dụng git
+if [ -d "./RunOut/.git" ]; then
+  echo "Creating git tag for current state..."
+  cd ./RunOut
+  git tag -a "backup_${BACKUP_DATE}" -m "Backup before restructuring"
+  cd ..
+fi
+
+echo "Backup completed!"
+```
+
+2. **Backup sau mỗi giai đoạn lớn**
+   - Tạo snapshot sau mỗi giai đoạn di chuyển
+   - Lưu log của mỗi giai đoạn
+
+3. **Đánh giá và rủi ro của chiến lược backup**:
+   - Chiến lược backup chỉ tập trung vào code, không đề cập đến dữ liệu
+   - Chưa có điểm khôi phục rõ ràng nếu quá trình di chuyển gặp vấn đề
+
+4. **Đề xuất cải thiện**:
+   - Bổ sung kế hoạch backup và khôi phục cho database
+   - Thiết lập các "điểm an toàn" cụ thể (giai đoạn đã hoàn thành và kiểm tra) trước khi tiến hành giai đoạn tiếp theo
+
+### 6.2. Kế hoạch xử lý dữ liệu và database migration
+
+1. **Backup dữ liệu**
+   ```bash
+   # Tạo bản sao lưu đầy đủ của database trước khi bắt đầu
+   mongodump --uri="mongodb://username:password@host:port/database" --out=/backup/path
+   ```
+   - Lên lịch backup tự động hàng ngày trong quá trình di chuyển
+   - Lưu trữ bản sao lưu ở ít nhất 2 vị trí khác nhau
+
+2. **Chiến lược migration**
+   - Sử dụng schema version:
+     - Thêm trường schemaVersion vào mỗi collection
+     - Viết script migration cho mỗi phiên bản schema
+
+   ```javascript
+   // migrations/v1-to-v2.js
+   db.getCollection('users').find({schemaVersion: 1}).forEach(function(user) {
+     // Thực hiện các thay đổi
+     user.fullName = user.firstName + ' ' + user.lastName;
+     delete user.firstName;
+     delete user.lastName;
+     user.schemaVersion = 2;
+     
+     db.users.save(user);
+   });
+   ```
+   - Kiểm tra tính toàn vẹn dữ liệu sau mỗi migration
+
+### 6.3. Kiểm tra tính hoạt động
+
+1. **Kiểm tra API endpoints**
+   - Viết script để kiểm tra tất cả API endpoints
+   - So sánh response với phiên bản cũ
+
+```javascript
+// check-api-endpoints.js
+const axios = require('axios');
+const fs = require('fs');
+
+const OLD_API_BASE = 'http://localhost:3001/api';
+const NEW_API_BASE = 'http://localhost:3001/api/v1';
+
+// Danh sách các endpoints cần kiểm tra
+const endpoints = [
+  { method: 'GET', path: '/products' },
+  { method: 'GET', path: '/categories' },
+  // Thêm các endpoints khác
+];
+
+async function compareEndpoints() {
+  const results = [];
+
+  for (const endpoint of endpoints) {
+    try {
+      console.log(`Testing ${endpoint.method} ${endpoint.path}...`);
+      
+      // Gửi request đến API cũ
+      const oldResponse = await axios({
+        method: endpoint.method,
+        url: `${OLD_API_BASE}${endpoint.path}`,
+        // headers, data nếu cần
+      });
+      
+      // Gửi request đến API mới
+      const newResponse = await axios({
+        method: endpoint.method,
+        url: `${NEW_API_BASE}${endpoint.path}`,
+        // headers, data nếu cần
+      });
+      
+      // So sánh response
+      const isEquivalent = JSON.stringify(oldResponse.data) === JSON.stringify(newResponse.data);
+      
+      results.push({
+        endpoint: `${endpoint.method} ${endpoint.path}`,
+        status: isEquivalent ? 'PASS' : 'FAIL',
+        oldStatus: oldResponse.status,
+        newStatus: newResponse.status,
+      });
+      
+    } catch (error) {
+      results.push({
+        endpoint: `${endpoint.method} ${endpoint.path}`,
+        status: 'ERROR',
+        error: error.message,
+      });
+    }
+  }
+  
+  // Lưu kết quả vào file
+  fs.writeFileSync('./api-comparison-results.json', JSON.stringify(results, null, 2));
+  
+  // In báo cáo
+  console.log('\nAPI Comparison Results:');
+  console.log('=======================');
+  
+  const passed = results.filter(r => r.status === 'PASS').length;
+  const failed = results.filter(r => r.status === 'FAIL').length;
+  const errors = results.filter(r => r.status === 'ERROR').length;
+  
+  console.log(`Total endpoints: ${results.length}`);
+  console.log(`Passed: ${passed}`);
+  console.log(`Failed: ${failed}`);
+  console.log(`Errors: ${errors}`);
+  
+  if (failed > 0 || errors > 0) {
+    console.log('\nDetails of failed tests:');
+    results
+      .filter(r => r.status !== 'PASS')
+      .forEach(r => console.log(`- ${r.endpoint}: ${r.status} ${r.error ? `(${r.error})` : ''}`));
+  }
+}
+
+compareEndpoints();
+```
+
+2. **Kiểm tra giao diện người dùng**
+   - So sánh UI giữa phiên bản cũ và mới
+   - Đảm bảo các chức năng chính vẫn hoạt động
+
+### 6.4. Quy trình Kiểm tra A/B cho phiên bản mới
+
+1. **Thiết lập hệ thống song song**
+   - Duy trì hệ thống cũ hoạt động trong quá trình phát triển phiên bản mới
+   - Sử dụng feature flags để kiểm soát việc chuyển đổi từng chức năng
+   - Sử dụng proxy để định tuyến người dùng giữa phiên bản cũ và mới
+
+2. **Chiến lược phân phối lưu lượng**
+   - **Giai đoạn 1 - Internal testing**:
+     - 100% internal users sử dụng phiên bản mới
+     - 0% external users sử dụng phiên bản mới
+     - Thu thập phản hồi và sửa lỗi
+
+   - **Giai đoạn 2 - Canary release**:
+     - 100% internal users sử dụng phi
+     Ảnh hưởng đến môi trường production** | Cực cao | Thấp | • Đảm bảo môi trường dev/staging hoàn toàn tách biệt<br>• Không thực hiện thay đổi trực tiếp trên production<br>• Có quy trình approval nghiêm ngặt trước khi deploy |
+| **Conflicts với các thay đổi đang diễn ra** | Trung bình | Cao | • Đóng băng các tính năng mới trong quá trình di chuyển<br>• Sử dụng feature branches và quản lý version chặt chẽ<br>• Tách riêng nhóm tái cấu trúc và nhóm phát triển tính năng |
+
+### 10.6. Chiến lược giảm thiểu rủi ro tổng thể
+
+#### 1. Phân chia rủi ro theo mức độ ưu tiên
+
+**Rủi ro cần giải quyết ngay lập tức:**
+- Mất dữ liệu trong quá trình migration
+- API endpoints không tương thích
+- Downtime khi chuyển đổi
+- Ảnh hưởng đến môi trường production
+
+**Rủi ro cần theo dõi sát sao:**
+- Giao diện người dùng thay đổi
+- Mất chức năng trong quá trình chuyển đổi
+- Vượt quá thời gian dự kiến
+- Conflicts với các thay đổi đang diễn ra
+
+**Rủi ro cần lên kế hoạch dự phòng:**
+- Performance degradation
+- Dependencies không tương thích
+- Scope creep
+- Thiếu tài nguyên phát triển
+
+#### 2. Nguyên tắc giảm thiểu rủi ro chung
+
+1. **Phân chia nhỏ**: Chia các nhiệm vụ thành các phần nhỏ có thể quản lý được
+2. **Kiểm tra sớm, kiểm tra thường xuyên**: Không để dồn các vấn đề đến cuối dự án
+3. **Automated testing**: Tăng cường kiểm tra tự động để phát hiện vấn đề sớm
+4. **Dữ liệu là ưu tiên số 1**: Luôn đảm bảo an toàn dữ liệu trong mọi tình huống
+5. **Chuẩn bị rollback**: Luôn có khả năng quay trở lại trạng thái an toàn trước đó
+
+#### 3. Tối ưu hóa chiến lược chuyển đổi
+
+1. **Tách riêng cơ sở dữ liệu và mã nguồn**:
+   - Tập trung vào việc giữ nguyên cấu trúc dữ liệu trong giai đoạn đầu
+   - Chỉ thực hiện database migrations khi cần thiết
+
+2. **Triển khai song song**:
+   - Đảm bảo hệ thống cũ vẫn hoạt động trong quá trình phát triển
+   - Sử dụng reverse proxy để chuyển đổi traffic dần dần
+
+3. **Monitoring toàn diện**:
+   - Thiết lập hệ thống giám sát end-to-end
+   - Đặt ngưỡng cảnh báo cho các metrics quan trọng
+   - Tự động báo cáo sự cố
+
+## 11. Công cụ hỗ trợ quá trình chuyển đổi
+
+### 11.1. Công cụ phân tích mã nguồn
+
+1. **Code Analysis Tools**
+   - **Dependency Cruiser**: Phân tích và trực quan hóa dependencies trong dự án
+     ```bash
+     npx dependency-cruiser --include-only "^src" --output-type dot src | dot -T svg > dependency-graph.svg
+     ```
+   - **ESLint với plugin cụ thể** cho AngularJS và React
+     ```bash
+     npm install eslint-plugin-react eslint-plugin-angular --save-dev
+     ```
+   - **Code Climate**: Phân tích chất lượng code và trùng lặp
+
+2. **Công cụ Migration**
+   - **React Codemod**: Chuyển đổi cú pháp React cũ sang mới
+     ```bash
+     npx react-codemod <transform> <path>
+     ```
+   - **ngReact**: Giúp AngularJS và React làm việc cùng nhau trong quá trình chuyển đổi
+   - **babel-plugin-angularjs-annotate**: Hỗ trợ annotation cho AngularJS trong quá trình build
+
+3. **Testing Tools**
+   - **Jest** với enzyme cho React testing
+   - **Cypress** cho end-to-end testing
+   - **React Testing Library** cho component testing
+   - **Storybook** để kiểm tra UI components trong quá trình chuyển đổi
+
+### 11.2. Chiến lược quản lý dự án và theo dõi tiến độ
+
+#### 1. Áp dụng phương pháp Agile với Kanban
+
+Kanban phù hợp hơn với dự án tái cấu trúc so với Scrum vì:
+- Linh hoạt hơn trong việc thêm/bớt công việc
+- Tập trung vào việc hoàn thành công việc đang thực hiện
+- Theo dõi trực quan tiến độ của từng task
+
+#### 2. Danh sách kiểm tra chi tiết sau mỗi giai đoạn
+
+##### Giai đoạn 1: Thiết lập cấu trúc thư mục và môi trường
+
+**Trước khi bắt đầu**
+- [ ] Tạo bản sao lưu (backup) toàn bộ dự án hiện tại
+- [ ] Tạo git branch mới cho quá trình tái cấu trúc
+- [ ] Xác định các biến môi trường cần thiết cho dự án mới
+
+**Kiểm tra sau khi hoàn thành**
+- [ ] Cấu trúc thư mục đã được tạo đúng theo kế hoạch
+- [ ] Docker Compose có thể khởi động thành công
+- [ ] ESLint và Prettier được cấu hình đúng
+- [ ] Các file .env mẫu đã được tạo và chứa các biến cần thiết
+- [ ] Git ignore được cấu hình đúng để bỏ qua node_modules và các file nhạy cảm
+
+##### Giai đoạn 2: Di chuyển Backend
+
+**Trước khi bắt đầu**
+- [ ] Xác định tất cả các API endpoints hiện tại
+- [ ] Tạo danh sách các models và mối quan hệ giữa chúng
+- [ ] Xác định các dependencies của backend
+- [ ] Chuẩn bị script di chuyển backend
+
+**Kiểm tra sau khi hoàn thành**
+- [ ] Tất cả models đã được di chuyển và cấu trúc không thay đổi
+- [ ] Tất cả controllers hoạt động đúng
+- [ ] API endpoints trả về kết quả giống với phiên bản cũ
+- [ ] Middlewares hoạt động đúng (authentication, validation, error handling)
+- [ ] Database kết nối thành công
+- [ ] Unit tests cho backend pass
+
+##### Giai đoạn 3: Tạo Shared Components và Validators
+
+**Trước khi bắt đầu**
+- [ ] Xác định các validators được sử dụng ở cả frontend và backend
+- [ ] Xác định các utility functions được sử dụng ở nhiều nơi
+- [ ] Chuẩn bị script di chuyển shared components
+
+**Kiểm tra sau khi hoàn thành**
+- [ ] Các validators hoạt động đúng
+- [ ] Shared services có thể import và sử dụng trong các ứng dụng
+- [ ] Type definitions (nếu sử dụng TypeScript) chính xác
+- [ ] Không có imports bị vỡ trong các modules
+
+##### Giai đoạn 4: Di chuyển và chuyển đổi Frontend
+
+**Trước khi bắt đầu**
+- [ ] Tạo danh sách tất cả các trang và chức năng trong ứng dụng hiện tại
+- [ ] Xác định thứ tự ưu tiên cho việc chuyển đổi các trang
+- [ ] Chuẩn bị các tests để đảm bảo chức năng tương đương
+- [ ] Chuẩn bị script di chuyển React components
+
+**Kiểm tra từng trang sau khi chuyển đổi**
+- [ ] UI tương đương với phiên bản cũ
+- [ ] Tất cả chức năng hoạt động đúng
+- [ ] State management hoạt động đúng
+- [ ] Forms và validations hoạt động đúng
+- [ ] Performance không bị giảm sút
+
+**Kiểm tra sau khi hoàn thành**
+- [ ] Tất cả các trang đã được chuyển đổi
+- [ ] Routing hoạt động đúng
+- [ ] Authentication và authorization hoạt động đúng
+- [ ] Responsive design hoạt động trên các kích thước màn hình
+- [ ] Unit tests và integration tests cho frontend pass
+
+##### Giai đoạn 5: Cấu hình Docker và CI/CD
+
+**Trước khi bắt đầu**
+- [ ] Xác định các môi trường deployment (dev, staging, production)
+- [ ] Xác định các bước cần thiết trong CI/CD pipeline
+- [ ] Chuẩn bị scripts cần thiết
+
+**Kiểm tra sau khi hoàn thành**
+- [ ] Docker Compose cho development hoạt động đúng
+- [ ] Docker images có kích thước hợp lý và build nhanh
+- [ ] CI/CD pipeline chạy thành công
+- [ ] Deployment tự động hoạt động đúng
+- [ ] Rollback script hoạt động đúng
+- [ ] Logs được cấu hình đúng
+
+##### Giai đoạn 6: Tài liệu và Testing
+
+**Trước khi bắt đầu**
+- [ ] Xác định các phần cần được tài liệu hóa
+- [ ] Xác định các test cases cần thiết
+
+**Kiểm tra sau khi hoàn thành**
+- [ ] Tài liệu API đầy đủ và chính xác
+- [ ] Tài liệu development đầy đủ và dễ hiểu
+- [ ] Setup guide cho developer mới
+- [ ] Unit tests bao phủ các thành phần quan trọng
+- [ ] Integration tests bao phủ các luồng chính
+- [ ] End-to-end tests cho các user flows chính
+- [ ] Test coverage đạt yêu cầu (ít nhất 70%)
+
+##### Kiểm tra tổng thể sau khi hoàn thành dự án
+
+**Chức năng**
+- [ ] Tất cả các chức năng hoạt động đúng như phiên bản cũ
+- [ ] Không có regression bugs
+- [ ] API endpoints hoạt động đúng và trả về kết quả đúng
+- [ ] Authentication và authorization hoạt động đúng
+
+**Performance**
+- [ ] Load time của các trang không chậm hơn phiên bản cũ
+- [ ] API response time trong giới hạn chấp nhận được
+- [ ] Bundle size được tối ưu
+- [ ] Không có memory leaks
+
+**Code quality**
+- [ ] Không có linting errors
+- [ ] Không có console.log debug statements
+- [ ] Code được tổ chức tốt và dễ bảo trì
+- [ ] Không có duplicated code
+
+**DevOps**
+- [ ] Tất cả môi trường (dev, staging, production) hoạt động đúng
+- [ ] CI/CD pipeline chạy nhanh và ổn định
+- [ ] Monitoring được thiết lập đúng
+- [ ] Các biện pháp bảo mật được áp dụng
+
+**Documentation**
+- [ ] Tài liệu đầy đủ và up-to-date
+- [ ] README.md rõ ràng với hướng dẫn setup và development
+- [ ] API documentation đầy đủ
+- [ ] Deployment guide đầy đủ
+
+## 12. Kế hoạch triển khai chi tiết
+
+### 12.1. Lịch trình triển khai
+
+| Giai đoạn | Công việc | Thời gian | Người phụ trách |
+|-----------|-----------|-----------|-----------------|
+| 1 | Thiết lập cấu trúc thư mục và môi trường | 1-2 ngày | Steve |
+| 2 | Di chuyển Backend | 2-3 ngày | Steve |
+| 3 | Tạo Shared Components và Validators | 3-4 ngày | Steve |
+| 4 | Di chuyển và chuyển đổi Frontend | 5-7 ngày | Steve |
+| 5 | Cấu hình Docker và CI/CD | 2-3 ngày | Steve |
+| 6 | Tài liệu và Testing | 3-4 ngày | Steve |
+
+### 12.2. Kế hoạch thực hiện chi tiết
+
+#### Tuần 1: Chuẩn bị và thiết lập
+
+**Ngày 1-2: Phân tích dự án và thiết lập môi trường**
+- **Setup repository**
+  - Tạo git repository mới hoặc branch mới
+  - Thiết lập .gitignore
+  - Tạo cấu trúc thư mục ban đầu trong `steve/`
+
+- **Thiết lập Docker và môi trường phát triển**
+  - Tạo Dockerfile cho các services
+  - Tạo docker-compose.yml
+  - Thiết lập các file .env
+
+- **Thiết lập linting và formatting**
+  - Cấu hình ESLint và Prettier
+  - Thiết lập husky pre-commit hooks
+
+**Ngày 3-4: Backup và phân tích mã nguồn**
+- **Tạo backup**
+  - Backup code và database
+  - Tạo git tag cho trạng thái hiện tại
+
+- **Phân tích mã nguồn**
+  - Phân tích dependencies
+  - Tạo danh sách API endpoints
+  - Map các models và relationships
+
+#### Tuần 2: Di chuyển Backend
+
+**Ngày 1-2: Di chuyển models và database**
+- Tạo database schema mới
+- Di chuyển models
+- Thiết lập kết nối database
+- Test kết nối và truy vấn cơ bản
+
+**Ngày 3-5: Di chuyển controllers, routes và middleware**
+- Di chuyển controllers
+- Di chuyển routes
+- Di chuyển middleware
+- Test API endpoints với Postman hoặc script kiểm tra
+
+#### Tuần 3: Shared Components và Validators
+
+**Ngày 1-2: Di chuyển và tạo shared validators**
+- Di chuyển validators từ backend và frontend
+- Refactor validators để có thể dùng ở cả client và server
+- Test validators với unit tests
+
+**Ngày 3-5: Tạo shared services và utilities**
+- Tạo API client services
+- Tạo shared utilities
+- Tạo authentication services
+- Test services với unit tests
+
+#### Tuần 4-5: Frontend React
+
+**Ngày 1-2: Thiết lập cấu trúc project React**
+- Thiết lập project structure
+- Cấu hình routing
+- Thiết lập state management (Context API)
+
+**Ngày 3-10: Chuyển đổi từng trang theo thứ tự ưu tiên**
+- Bắt đầu với trang đơn giản (Login, Register)
+- Tiếp theo là trang Home và các trang hiển thị danh sách
+- Cuối cùng là các trang phức tạp (Cart, Checkout)
+- Mỗi trang cần kiểm tra chức năng và UI sau khi chuyển đổi
+
+#### Tuần 6: Docker, CI/CD và Tài liệu
+
+**Ngày 1-2: Hoàn thiện Docker và CI/CD**
+- Tối ưu Docker images
+- Thiết lập CI/CD pipeline
+- Test deployment
+
+**Ngày 3-5: Viết tài liệu và testing**
+- Viết tài liệu API
+- Viết hướng dẫn development
+- Viết hướng dẫn deployment
+- Tăng cường test coverage
+
+### 12.3. Theo dõi tiến độ và đánh giá chất lượng
+
+1. **Theo dõi tiến độ**
+   - Sử dụng GitHub Projects hoặc Trello
+   - Cập nhật tiến độ hàng ngày
+   - Đánh dấu các milestone đã hoàn thành
+
+2. **Đánh giá chất lượng**
+   - Code coverage phải đạt ít nhất 70%
+   - Zero critical bugs sau mỗi giai đoạn
+   - UI/UX phải khớp với phiên bản cũ
+   - Performance benchmark (API response time, frontend loading)
+
+3. **Báo cáo và feedback**
+   - Báo cáo daily progress
+   - Retrospective sau mỗi giai đoạn
+   - Điều chỉnh kế hoạch nếu cần
+
+## 13. Tóm tắt và khuyến nghị
+
+### 13.1. Điểm mạnh của kế hoạch
+
+- Phân tích hiện trạng toàn diện, xác định rõ các vấn đề cần giải quyết
+- Cấu trúc monorepo mới được tổ chức hợp lý, phân chia rõ ràng
+- Kế hoạch di chuyển từng bước với thời gian dự kiến hợp lý
+- Đã cung cấp scripts tự động hóa hữu ích
+
+### 13.2. Khuyến nghị quan trọng
+
+1. **Áp dụng Strangler Pattern**
+   - Chuyển đổi từng phần nhỏ thay vì toàn bộ hệ thống
+   - Sử dụng proxy để định tuyến request giữa hệ thống cũ và mới
+   - Giảm thiểu rủi ro và cho phép kiểm tra từng phần
+
+2. **Tăng cường kiểm tra và giám sát**
+   - Thiết lập danh sách kiểm tra chi tiết sau mỗi giai đoạn
+   - Đầu tư vào automated testing từ sớm
+   - Triển khai hệ thống monitoring để theo dõi hiệu suất và lỗi
+
+3. **Chiến lược dữ liệu an toàn**
+   - Tạo backup toàn diện cho cả code và database
+   - Phát triển và test migration scripts kỹ lưỡng
+   - Theo dõi tính toàn vẹn dữ liệu sau mỗi migration
+
+4. **Kế hoạch rollback cụ thể**
+   - Xác định rõ các ngưỡng để quyết định rollback
+   - Chuẩn bị scripts rollback và test chúng trước
+   - Đảm bảo quy trình rollback đơn giản và đáng tin cậy
+
+5. **Quản lý dự án hiệu quả**
+   - Sử dụng Kanban để theo dõi tiến độ trực quan
+   - Chia nhỏ công việc thành các task có thể quản lý
+   - Thiết lập báo cáo tiến độ định kỳ
+
+### 13.3. Các bước tiếp theo ưu tiên
+
+1. **Tuần 1: Chuẩn bị và thiết lập**
+   - Thiết lập repository và môi trường phát triển
+   - Tạo scripts backup đầy đủ
+   - Phân tích chi tiết các components và API endpoints
+
+2. **Tuần 2: Di chuyển Backend**
+   - Bắt đầu với models và services
+   - Tiếp tục với controllers và routes
+   - Kiểm tra kỹ lưỡng API endpoints
+
+3. **Tuần 3-5: Shared Components và Frontend**
+   - Thiết lập shared utilities và validators
+   - Chuyển đổi từng trang từ AngularJS sang React
+   - Ưu tiên các trang đơn giản trước, phức tạp sau
+
+4. **Tuần 6: Hoàn thiện và triển khai**
+   - Cấu hình Docker và CI/CD
+   - Viết tài liệu và bổ sung tests
+   - Lên kế hoạch triển khai production
+
+### 13.4. Lời khuyên bổ sung
+
+1. **Đầu tư vào monitoring từ sớm**
+   - Thiết lập logging và error tracking
+   - Đo lường hiệu suất trước và sau mỗi giai đoạn
+   - Giám sát tài nguyên hệ thống trong quá trình chuyển đổi
+
+2. **Giữ nguyên API contracts**
+   - Đảm bảo API endpoints mới có signature giống hệt cũ
+   - Duy trì backward compatibility
+   - Sử dụng API versioning nếu cần thay đổi lớn
+
+3. **Tách biệt việc refactoring và feature development**
+   - Tránh thêm tính năng mới trong quá trình tái cấu trúc
+   - Hoàn thành migration trước, sau đó mới phát triển tính năng mới
+   - Nếu cần thêm tính năng gấp, triển khai song song trên cả hệ thống cũ và mới
+
+### 6.5. Kế hoạch rollback chi tiết
+
+1. **Nguyên tắc chung**
+   - **Nhanh chóng**: Khả năng rollback trong vòng 15 phút
+   - **Đơn giản**: Quy trình rõ ràng, không phức tạp
+   - **Đáng tin cậy**: Đã được kiểm tra trước
+
+2. **Điểm quyết định rollback**
+
+   Xác định rõ các tình huống yêu cầu rollback:
+
+   - **High severity bugs**:
+     - Lỗi ảnh hưởng đến dữ liệu người dùng
+     - Lỗi bảo mật nghiêm trọng
+     - Lỗi crash ứng dụng hoặc khiến tính năng quan trọng không hoạt động
+
+   - **Performance degradation**:
+     - API response time tăng >50%
+     - Frontend load time tăng >50%
+     - CPU hoặc memory usage tăng đột biến
+
+   - **Phản hồi người dùng tiêu cực**:
+     - >10% người dùng báo cáo vấn đề với tính năng quan trọng
+     - Tỷ lệ bounce rate tăng đáng kể
+
+3. **Quy trình rollback cho Backend**
+
+   - **Rollback code**:
+     ```bash
+     # Quay lại commit/tag trước khi thực hiện thay đổi
+     git checkout [stable_tag]
+
+     # Rebuild và restart server
+     docker-compose -f docker-compose.prod.yml build server
+     docker-compose -f docker-compose.prod.yml up -d server
+     ```
+
+   - **Rollback database**:
+     ```bash
+     # Khôi phục database từ bản backup trước khi migration
+     mongorestore --uri="mongodb://username:password@host:port/database" --drop /path/to/backup
+
+     # Hoặc sử dụng script khôi phục schema
+     node scripts/rollback-db-changes.js
+     ```
+
+   - **Xác nhận rollback thành công**:
+     - Kiểm tra logs để đảm bảo server khởi động thành công
+     - Thực hiện smoke tests cho các API endpoints quan trọng
+     - Xác nhận schema database đã được khôi phục
+
+4. **Quy trình rollback cho Frontend**
+
+   - **Rollback code**:
+     ```bash
+     # Quay lại phiên bản stable
+     git checkout [stable_tag]
+
+     # Rebuild và deploy
+     docker-compose -f docker-compose.prod.yml build client
+     docker-compose -f docker-compose.prod.yml up -d client
+     ```
+
+   - **Sử dụng traffic routing**:
+     ```nginx
+     # Cấu hình Nginx để chuyển hướng lưu lượng về phiên bản cũ
+     server {
+         listen 80;
+         server_name example.com;
+         
+         location / {
+             proxy_pass http://old-frontend:3000;
+         }
+     }
+     ```
+
+   - **Xác nhận rollback thành công**:
+     - Kiểm tra các trang quan trọng hoạt động đúng
+     - Xác nhận thay đổi đã được áp dụng cho tất cả người dùng
+
+5. **Rollback khi chạy song song hai hệ thống**
+
+   Khi sử dụng chiến lược strangler pattern và chạy song song hai hệ thống:
+
+   ```nginx
+   # Trước khi chuyển đổi
+   location /products {
+       proxy_pass http://old-system/products;
+   }
+
+   # Sau khi chuyển đổi
+   location /products {
+       proxy_pass http://new-system/products;
+   }
+
+   # Rollback configuration
+   location /products {
+       proxy_pass http://old-system/products;
+   }
+   ```
+
+6. **Kịch bản rollback cho từng giai đoạn**
+
+   - **Giai đoạn 2: Di chuyển Backend**
+     - **Backup**: Database và code trước khi di chuyển
+     - **Rollback**: Khôi phục code từ git, restart service cũ
+     - **Verification**: API tests để xác nhận hệ thống hoạt động
+
+   - **Giai đoạn 3: Tạo Shared Components**
+     - **Backup**: Code trước khi tạo shared components
+     - **Rollback**: Khôi phục code từ git, quay lại import paths cũ
+     - **Verification**: Build và test để xác nhận không có lỗi
+
+   - **Giai đoạn 4: Di chuyển Frontend**
+     - **Backup**: Code frontend cũ
+     - **Rollback**: Khôi phục code từ git, deploy phiên bản cũ
+     - **Verification**: UI tests để xác nhận giao diện và chức năng
+
+   - **Giai đoạn 5: Cấu hình Docker và CI/CD**
+     - **Backup**: Cấu hình deployment cũ
+     - **Rollback**: Khôi phục cấu hình deployment, restart services
+     - **Verification**: Kiểm tra pipeline và deployment
+
+7. **Theo dõi sau rollback**
+
+   - **Thu thập thông tin**:
+     - Lý do rollback
+     - Các lỗi đã phát hiện
+     - Ảnh hưởng đến người dùng
+     - Thời gian downtime (nếu có)
+
+   - **Phân tích nguyên nhân**:
+     - Tổ chức meeting để phân tích nguyên nhân gốc rễ
+     - Xác định điểm yếu trong quy trình phát triển hoặc kiểm tra
+
+   - **Cập nhật kế hoạch di chuyển**:
+     - Điều chỉnh kế hoạch dựa trên bài học kinh nghiệm
+     - Cập nhật test cases để phát hiện lỗi tương tự trong tương lai
+     - Tăng cường kiểm tra cho các thành phần tương tự
+
+   - **Tái thử nghiệm**:
+     - Sửa lỗi trên môi trường dev/staging
+     - Thực hiện kiểm tra kỹ lưỡng hơn
+     - Lên kế hoạch deployment mới với monitoring cẩn thận hơn
+
+8. **Lưu ý quan trọng**
+   - Đảm bảo tất cả thành viên team đều biết và có thể thực hiện quy trình rollback
+   - Lưu trữ scripts rollback trong repository và đảm bảo chúng luôn được cập nhật
+   - Thực hành rollback định kỳ để đảm bảo quy trình hoạt động đúng
+   - Tài liệu hóa mỗi lần rollback để rút kinh nghiệm cho tương lai
+
+### 6.6. Xử lý code không tương thích
+
+1. **Chiến lược tạm thời**
+   - Tạo adapter tạm thời để duy trì tương thích
+   - Đánh dấu rõ code cần refactor trong tương lai
+
+2. **Refactoring từng phần**
+   - Thay vì chuyển đổi ngay, duy trì code cũ cho đến khi code mới sẵn sàng
+   - Sử dụng feature flags để chuyển đổi dần dần
+
+## 7. Tài liệu và hướng dẫn
+
+### 7.1. Tài liệu cấu trúc thư mục mới
+
+Tạo file `steve/docs/architecture/folder-structure-guide.md`:
+
+```markdown
+# Hướng dẫn cấu trúc thư mục
+
+## Tổng quan
+
+Dự án RunOut được tổ chức theo mô hình monorepo với các ứng dụng riêng biệt và các thành phần chung.
+```
+
+### 7.2. Quy trình phát triển
+
+Tạo file `steve/docs/development/development-guide.md`:
+
+```markdown
+# Hướng dẫn phát triển
+
+## Quy trình phát triển
+
+1. **Setup môi trường**
+   - Clone repository
+   - Cài đặt dependencies
+   - Cấu hình môi trường
+
+2. **Phát triển**
+   - Coding standards
+   - Git workflow
+   - Review process
+
+3. **Testing**
+   - Unit testing
+   - Integration testing
+   - E2E testing
+
+4. **Deployment**
+   - Staging
+   - Production
+```
+
+### 7.3. Hướng dẫn di chuyển và chuyển đổi
+
+Tạo file `steve/docs/migration/migration-guide.md`:
+
+```markdown
+# Hướng dẫn di chuyển
+
+## Di chuyển từ cấu trúc cũ sang cấu trúc mới
+
+### Backend
+
+1. **Models**
+   - Không thay đổi cấu trúc, chỉ di chuyển
+   - Cập nhật imports nếu cần
+
+2. **Controllers**
+   - Di chuyển logic xử lý
+   - Cập nhật paths và imports
+
+3. **Routes**
+   - Di chuyển và cập nhật các routes
+   - Đảm bảo API endpoints không thay đổi
+
+### Frontend
+
+1. **Chuyển đổi AngularJS sang React**
+   - Phân tích component AngularJS
+   - Tạo tương đương trong React
+   - Chuyển đổi state management
+```
+
+## 8. Môi trường phát triển
+
+### 8.1. Docker setup
+
+Tạo file `steve/config/docker/docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+    networks:
+      - app-network
+
+  server:
+    build:
+      context: ../../apps/server
+      dockerfile: Dockerfile.dev
+    container_name: server
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongodb
+    volumes:
+      - ../../apps/server:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${MONGO_ROOT_USER}
+      - DB_PASS=${MONGO_ROOT_PASSWORD}
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ../../apps/client
+      dockerfile: Dockerfile.dev
+    container_name: client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    volumes:
+      - ../../apps/client:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001/api/v1
+    networks:
+      - app-network
+
+  admin:
+    build:
+      context: ../../apps/admin
+      dockerfile: Dockerfile.dev
+    container_name: admin
+    ports:
+      - "3002:3002"
+    depends_on:
+      - server
+    volumes:
+      - ../../apps/admin:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001/api/v1
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+```
+
+Tạo file `steve/apps/server/Dockerfile.dev`:
+
+```dockerfile
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3001
+
+CMD ["npm", "run", "dev"]
+```
+
+Tạo file `steve/apps/client/Dockerfile.dev`:
+
+```dockerfile
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+```
+
+### 8.2. Development workflows
+
+Tạo file `steve/docs/development/workflow.md`:
+
+```markdown
+# Development Workflow
+
+## Local Development
+
+1. Start the development environment:
+   ```
+   cd steve
+   docker-compose -f config/docker/docker-compose.yml up
+   ```
+
+2. Access the applications:
+   - Client: http://localhost:3000
+   - Admin: http://localhost:3002
+   - API: http://localhost:3001/api/v1
+
+## Code Quality and Standards
+
+1. Run linting:
+   ```
+   npm run lint
+   ```
+
+2. Run tests:
+   ```
+   npm run test
+   ```
+
+## Git Workflow
+
+1. Create feature branch:
+   ```
+   git checkout -b feature/feature-name
+   ```
+
+2. Make changes and commit:
+   ```
+   git add .
+   git commit -m "feat: add new feature"
+   ```
+
+3. Push changes:
+   ```
+   git push origin feature/feature-name
+   ```
+
+4. Create pull request and request review
+
+5. After approval, merge to main branch
+
+## Deployment Workflow
+
+1. Merge changes to main branch
+
+2. CI/CD pipeline will:
+   - Run tests
+   - Build Docker images
+   - Push to registry
+   - Deploy to staging
+
+3. After staging verification, deploy to production
+```
+
+### 8.3. Testing Infrastructure
+
+Tạo file `steve/docs/development/testing-guide.md`:
+
+```markdown
+# Testing Guide
+
+## Testing Layers
+
+1. **Unit Tests**
+   - Test individual functions and components
+   - Mock external dependencies
+
+2. **Integration Tests**
+   - Test interaction between components
+   - Test API endpoints
+
+3. **End-to-End Tests**
+   - Test complete user flows
+   - Simulate real user behavior
+
+## Test Setup
+
+### Backend Testing
+
+1. Setup test environment in `steve/apps/server/tests`:
+
+```javascript
+// setup.js
+const mongoose = require('mongoose');
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
+let mongoServer;
+
+// Setup MongoDB in-memory server
+before(async () => {
+  mongoServer = await MongoMemoryServer.create();
+  const mongoUri = mongoServer.getUri();
+  await mongoose.connect(mongoUri);
+});
+
+// Clean up after tests
+after(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
+});
+
+// Clean up database between tests
+afterEach(async () => {
+  const collections = mongoose.connection.collections;
+  for (const key in collections) {
+    const collection = collections[key];
+    await collection.deleteMany({});
+  }
+});
+```
+
+2. Example API test:
+
+```javascript
+// products.test.js
+const request = require('supertest');
+const { expect } = require('chai');
+const app = require('../server');
+
+describe('Products API', () => {
+  it('should return list of products', async () => {
+    const res = await request(app)
+      .get('/api/v1/products')
+      .expect(200);
+    
+    expect(res.body).to.be.an('array');
+  });
+  
+  it('should create a new product', async () => {
+    const newProduct = {
+      name: 'Test Product',
+      price: 99.99,
+      description: 'A test product',
+      category: 'test-category',
+    };
+    
+    const res = await request(app)
+      .post('/api/v1/products')
+      .send(newProduct)
+      .expect(201);
+    
+    expect(res.body).to.have.property('_id');
+    expect(res.body.name).to.equal(newProduct.name);
+  });
+});
+```
+
+### Frontend Testing
+
+1. Component testing with React Testing Library and Vitest:
+
+```javascript
+// Button.test.jsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import Button from './Button';
+
+describe('Button Component', () => {
+  it('renders correctly', () => {
+    render(<Button>Click Me</Button>);
+    expect(screen.getByText('Click Me')).toBeInTheDocument();
+  });
+  
+  it('calls onClick handler when clicked', () => {
+    const handleClick = vi.fn();
+    render(<Button onClick={handleClick}>Click Me</Button>);
+    fireEvent.click(screen.getByText('Click Me'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+## Continuous Integration
+
+Setup GitHub Actions for automated testing in `.github/workflows/test.yml`:
+
+```yaml
+name: Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Install dependencies
+      run: |
+        cd steve
+        npm install
+        
+    - name: Run backend tests
+      run: |
+        cd steve/apps/server
+        npm test
+        
+    - name: Run frontend tests
+      run: |
+        cd steve/apps/client
+        npm test
+```
+```
+
+## 9. Chiến lược chuyển đổi từ AngularJS sang React
+
+### 9.1. Phân tích và mapping component
+
+| AngularJS Component | React Component | Mức độ phức tạp | Ưu tiên |
+|---------------------|-----------------|-----------------|---------|
+| LoginController | LoginPage | Trung bình | Cao |
+| HomeController | HomePage | Cao | Cao |
+| ProductController | ProductsPage | Cao | Cao |
+| DetailController | ProductDetailPage | Cao | Cao |
+| CartController | CartPage | Cao | Cao |
+| CheckoutController | CheckoutPage | Cao | Cao |
+| ProfileController | ProfilePage | Trung bình | Trung bình |
+| UserOrderController | OrdersPage | Trung bình | Trung bình |
+| UserWhishlistController | WishlistPage | Thấp | Thấp |
+
+### 9.2. Chuyển đổi state management
+
+1. **AngularJS scope** → **React state/context**
+   - Scope variables → useState/useReducer
+   - Scope functions → Event handlers
+
+2. **AngularJS services** → **React context và custom hooks**
+   - AuthService → useAuth hook và AuthContext
+   - CartService → useCart hook và CartContext
+   - APIService → useAPI hook
+
+3. **AngularJS directives** → **React components**
+   - Custom directives → Function components
+   - Structural directives (ng-if, ng-for) → Conditional rendering và .map()
+
+### 9.3. Quy trình chuyển đổi
+
+1. **Phân tích component AngularJS**
+   - Xác định state và props
+   - Xác định lifecycle methods
+   - Xác định event handlers
+
+2. **Tạo component React tương đương**
+   - Tạo functional component với hooks
+   - Implement state và effects
+   - Implement event handlers
+
+3. **Kiểm tra tương đương**
+   - So sánh UI giữa phiên bản AngularJS và React
+   - Kiểm tra luồng dữ liệu và behavior
+   - Fix các sai khác
+
+### 9.4. Ví dụ chuyển đổi
+
+#### AngularJS Controller:
+```javascript
+app.controller('ProductController', ['$scope', 'APIService', function($scope, APIService) {
+  $scope.products = [];
+  $scope.loading = true;
+  $scope.error = null;
+  
+  $scope.loadProducts = function() {
+    APIService.getProducts()
+      .then(function(response) {
+        $scope.products = response.data;
+        $scope.loading = false;
+      })
+      .catch(function(error) {
+        $scope.error = error.message;
+        $scope.loading = false;
+      });
+  };
+  
+  $scope.addToCart = function(product) {
+    APIService.addToCart(product._id)
+      .then(function() {
+        alert('Added to cart!');
+      })
+      .catch(function(error) {
+        $scope.error = error.message;
+      });
+  };
+  
+  $scope.loadProducts();
+}]);
+```
+
+#### React Component:
+```jsx
+import React, { useState, useEffect } from 'react';
+import { useAPI } from '../hooks/useAPI';
+import { useCart } from '../hooks/useCart';
+import ProductCard from '../components/ProductCard';
+import Loader from '../components/common/Loader';
+import ErrorMessage from '../components/common/ErrorMessage';
+
+const ProductsPage = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { getProducts } = useAPI();
+  const { addToCart } = useCart();
+  
+  const loadProducts = async () => {
+    try {
+      const data = await getProducts();
+      setProducts(data);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+  
+  const handleAddToCart = async (productId) => {
+    try {
+      await addToCart(productId);
+      alert('Added to cart!');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+  
+  useEffect(() => {
+    loadProducts();
+  }, []);
+  
+  if (loading) return <Loader />;
+  if (error) return <ErrorMessage message={error} />;
+  
+  return (
+    <div className="products-page">
+      <h1>Our Products</h1>
+      <div className="products-grid">
+        {products.map(product => (
+          <ProductCard 
+            key={product._id}
+            product={product}
+            onAddToCart={() => handleAddToCart(product._id)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductsPage;
+```
+
+### 9.5. Chiến lược Strangler Pattern
+
+1. **Nguyên tắc Strangler Pattern**
+   - Chuyển đổi từng phần nhỏ của ứng dụng thay vì chuyển đổi toàn bộ
+   - Sử dụng reverse proxy để định tuyến request giữa hệ thống cũ và mới
+   - Dần dần chuyển đổi các chức năng từ cũ sang mới
+
+2. **Các bước thực hiện**
+   - Thiết lập reverse proxy (nginx) để định tuyến request
+   - Xác định các chức năng độc lập có thể chuyển đổi trước
+   - Chuyển đổi từng chức năng:
+     - Phát triển chức năng trong hệ thống mới
+     - Kiểm tra kỹ lưỡng
+     - Cấu hình proxy để chuyển người dùng sang chức năng mới
+     - Thu thập phản hồi và theo dõi lỗi
+   - Lặp lại quy trình cho đến khi toàn bộ hệ thống được chuyển đổi
+
+## 10. Phân tích rủi ro và kế hoạch giảm thiểu
+
+### 10.1. Rủi ro về dữ liệu và tương thích API
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Mất dữ liệu trong quá trình migration** | Cao | Trung bình | • Backup database trước mỗi giai đoạn<br>• Tạo strategy để khôi phục dữ liệu<br>• Thực hiện migration trên bản sao trước khi áp dụng vào production |
+| **API endpoints không tương thích** | Cao | Cao | • Đảm bảo API signatures không thay đổi<br>• Tạo API version mới song song với phiên bản cũ<br>• Sử dụng API gateway để định tuyến requests |
+| **Schema database thay đổi** | Trung bình | Cao | • Lưu version schema trong database<br>• Viết migration scripts có khả năng rollback<br>• Test migration trên staging trước |
+
+### 10.2. Rủi ro về kỹ thuật và môi trường
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Dependencies không tương thích** | Trung bình | Cao | • Audit dependencies trước khi di chuyển<br>• Lock versions<br>• Sử dụng nvm/Docker để quản lý môi trường |
+| **Performance degradation** | Cao | Trung bình | • Benchmark trước và sau mỗi giai đoạn<br>• Thiết lập monitoring<br>• Có tiêu chí cụ thể để quyết định rollback |
+| **Docker container không hoạt động** | Trung bình | Thấp | • Test Docker setup trên nhiều môi trường<br>• Đảm bảo Docker compose có health checks<br>• Chuẩn bị fallback plan |
+
+### 10.3. Rủi ro về chuyển đổi UI và UX
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Giao diện người dùng thay đổi** | Cao | Cao | • Chụp screenshot UI cũ để so sánh<br>• Thực hiện A/B testing<br>• Thu thập phản hồi từ người dùng nội bộ trước<br>• Cung cấp hướng dẫn về UI mới cho người dùng |
+| **Mất chức năng trong quá trình chuyển đổi** | Cao | Trung bình | • Tạo danh sách đầy đủ chức năng hiện tại<br>• Viết test cases cho mỗi chức năng<br>• Thực hiện regression testing sau mỗi giai đoạn |
+| **Độ trễ trong quá trình chuyển đổi React** | Trung bình | Cao | • Sử dụng React Developer Tools để phân tích re-renders<br>• Áp dụng các pattern tối ưu hóa như React.memo, useMemo<br>• Thực hiện code splitting và lazy loading |
+
+### 10.4. Rủi ro về quản lý dự án và thời gian
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Vượt quá thời gian dự kiến** | Cao | Cao | • Thêm buffer 20-30% cho mỗi giai đoạn<br>• Chia nhỏ công việc thành các task có thể hoàn thành trong 1-2 ngày<br>• Đặt các milestone rõ ràng và kiểm tra tiến độ hàng ngày |
+| **Thiếu tài nguyên phát triển** | Trung bình | Trung bình | • Xác định rõ các kỹ năng cần thiết trước khi bắt đầu<br>• Chuẩn bị tài liệu đào tạo nhanh<br>• Ưu tiên các thành phần quan trọng nhất trước |
+| **Scope creep (mở rộng phạm vi)** | Cao | Cao | • Xác định rõ phạm vi từ đầu<br>• Chỉ chấp nhận thay đổi quan trọng trong quá trình di chuyển<br>• Lên kế hoạch cho các cải tiến trong phase 2 sau khi di chuyển hoàn tất |
+
+### 10.5. Rủi ro về hệ thống đang hoạt động
+
+| Rủi ro | Mức độ nghiêm trọng | Khả năng xảy ra | Kế hoạch giảm thiểu |
+|--------|---------------------|-----------------|---------------------|
+| **Downtime khi chuyển đổi** | Cao | Trung bình | • Lên kế hoạch chuyển đổi vào thời điểm ít người dùng<br>• Sử dụng Blue-Green deployment<br>• Thông báo trước cho người dùng về lịch bảo trì |
+| **# Kế hoạch tái cấu trúc dự án RunOut
+
+## 1. Tổng quan dự án
+
+### 1.1. Mục tiêu
+Tái cấu trúc dự án RunOut từ cấu trúc hiện tại (phức tạp và trùng lặp) sang một cấu trúc thư mục mới, hiện đại và có tổ chức hơn trong thư mục `steve/`.
+
+### 1.2. Phạm vi
+- Chuyển đổi từ AngularJS (Admin, User) sang React (client)
+- Tái cấu trúc Backend Express.js
+- Thiết lập shared components, validators và utilities
+- Cấu hình và tài liệu
+
+### 1.3. Định hướng công nghệ
+- **Backend**: Express.js
+- **Frontend**: React + Tailwind CSS
+- **Môi trường**: Docker
+- **Database**: MongoDB
+- **Testing**: Jest, React Testing Library, Cypress
+
+## 2. Phân tích hiện trạng và xác định vấn đề
+
+### 2.1. Cấu trúc hiện tại
+Dự án RunOut hiện tại có cấu trúc phức tạp với nhiều thư mục chồng chéo và trùng lặp:
+
+- **Admin/**: Dashboard quản trị sử dụng AngularJS
+- **User/**: Frontend người dùng sử dụng AngularJS
+- **Server/**: Backend Express.js
+- **client/**: Phiên bản React mới (đang phát triển)
+- **src/**: Trùng lặp với client/src, cũng sử dụng React
+- **tools/**: Các công cụ hỗ trợ phát triển
+- **steve/**: Cấu trúc mới đang xây dựng
+
+### 2.2. Vấn đề chính
+
+1. **Trùng lặp code**:
+   - Có hai thư mục frontend React (`src/` và `client/src/`)
+   - Validators được lặp lại ở nhiều nơi
+   - Nhiều service trùng lặp với chức năng tương tự
+
+2. **Công nghệ không nhất quán**:
+   - AngularJS (Admin và User)
+   - React (client và src)
+   - Thiếu các adapter và patterns chung
+
+3. **Quản lý môi trường kém**:
+   - Các file .env phân tán ở nhiều vị trí
+   - Thiếu cấu hình Docker nhất quán
+
+4. **Tài liệu phân tán**:
+   - Thiếu tài liệu tập trung
+   - Thiếu hướng dẫn phát triển chuẩn
+
+5. **Thiếu infrastructure testing**:
+   - Không có cấu trúc testing rõ ràng
+   - Thiếu automation tests
+
+## 3. Cấu trúc mục tiêu
+
+### 3.1. Backend Express.js
+
+```
+steve/apps/server/
+├── config/           # Cấu hình đặc thù cho server
+├── configs/          # Di chuyển từ Server/configs
+├── controllers/      # Di chuyển từ Server/controllers
+├── middlewares/      # Di chuyển từ Server/middlewares
+├── models/           # Di chuyển từ Server/models
+├── routes/           # Di chuyển từ Server/routes
+├── utils/            # Di chuyển từ Server/utils
+├── server.js         # Entry point
+├── Dockerfile.prod   # Production Docker
+├── .env              # Biến môi trường
+├── package.json      # Dependencies
+└── tests/            # Unit và integration tests
+```
+
+### 3.2. Frontend React + Tailwind CSS
+
+```
+steve/apps/client/
+├── config/           # Cấu hình webpack, babel, etc.
+├── public/           # Static assets
+├── src/
+│   ├── assets/       # Images, fonts, etc.
+│   ├── components/   # UI components
+│   │   ├── common/   # Shared components
+│   │   ├── features/ # Feature-specific components
+│   │   └── layout/   # Layout components
+│   ├── hooks/        # Custom React hooks
+│   ├── pages/        # Page components
+│   ├── services/     # API communication
+│   ├── context/      # React context
+│   ├── utils/        # Utility functions
+│   ├── App.jsx       # Main App component
+│   └── index.jsx     # Entry point
+├── tailwind.config.js # Tailwind config
+├── Dockerfile.prod    # Production Docker
+├── .env.development   # Development env vars
+├── .env.production    # Production env vars
+└── package.json       # Dependencies
+```
+
+### 3.3. Shared components, validators, utilities
+
+```
+steve/common/
+├── services/         # Shared services
+│   └── api/          # API clients
+│       ├── auth-service/
+│       ├── order-service/
+│       ├── product-service/
+│       └── user-service/
+├── validators/       # Shared validators
+├── utils/            # Shared utilities
+└── types/            # TypeScript type definitions
+```
+
+### 3.4. Cấu hình và tài liệu
+
+```
+steve/config/
+├── docker/           # Docker configurations
+├── env/              # Environment templates
+├── lint/             # Linting configurations
+└── scripts/          # Utility scripts
+
+steve/docs/
+├── api/              # API documentation
+├── architecture/     # Architecture documentation
+├── development/      # Development guides
+├── migration/        # Migration guides
+└── setup/            # Setup instructions
+```
+
+### 3.5. Rủi ro trong cấu trúc mục tiêu
+
+1. **Thư mục steve/common**:
+   - Có thể gặp vấn đề về kết nối với các ứng dụng riêng biệt nếu không có cơ chế import/export phù hợp
+   
+2. **Đề xuất**:
+   - Cần có chiến lược rõ ràng cho việc import các thành phần từ common vào các ứng dụng
+   - Có thể sử dụng npm workspaces hoặc symlinks
+
+## 4. Kế hoạch di chuyển từng bước
+
+### 4.1. Giai đoạn 1: Thiết lập cấu trúc thư mục và môi trường (1-2 ngày)
+
+1. **Tạo cấu trúc thư mục cơ bản**
+   - Tạo các thư mục còn thiếu trong `steve/`
+   - Thiết lập các file cấu hình Docker, ESLint, Prettier
+
+2. **Thiết lập môi trường phát triển**
+   - Tạo Docker Compose cho development
+   - Tạo các file .env mẫu
+   - Cấu hình ESLint và Prettier
+
+### 4.2. Giai đoạn 2: Di chuyển Backend (2-3 ngày)
+
+1. **Di chuyển cơ sở dữ liệu và models**
+   - Di chuyển models từ `Server/models/` sang `steve/apps/server/models/`
+   - Đảm bảo tương thích và nhất quán
+
+2. **Di chuyển controllers và routes**
+   - Di chuyển controllers từ `Server/controllers/` sang `steve/apps/server/controllers/`
+   - Di chuyển routes từ `Server/routes/` sang `steve/apps/server/routes/`
+   - Kiểm tra tính đúng đắn của API endpoints
+
+3. **Di chuyển middlewares và utilities**
+   - Di chuyển middlewares từ `Server/middlewares/` sang `steve/apps/server/middlewares/`
+   - Di chuyển utilities từ `Server/utils/` sang `steve/apps/server/utils/`
+
+4. **Cập nhật dependencies và scripts**
+   - Cập nhật package.json với các dependencies cần thiết
+   - Tạo scripts để khởi động server
+
+### 4.3. Giai đoạn 3: Tạo Shared Components và Validators (3-4 ngày)
+
+1. **Tạo shared validators**
+   - Di chuyển và tổng hợp validators từ các thư mục khác nhau
+   - Tạo các validators mới nếu cần thiết
+
+2. **Tạo shared services**
+   - Thiết kế lại các service để tái sử dụng
+   - Tạo các service adapter
+
+3. **Tạo shared utilities**
+   - Di chuyển và tổng hợp utilities từ các thư mục khác nhau
+   - Tạo các utility mới nếu cần thiết
+
+### 4.4. Giai đoạn 4: Di chuyển và chuyển đổi Frontend (5-7 ngày)
+
+1. **Di chuyển React components từ client/src**
+   - Phân tích và tái cấu trúc thành các component có tổ chức
+   - Chuyển sang Tailwind CSS nếu cần
+
+2. **Chuyển đổi AngularJS từ User/ sang React**
+   - Phân tích từng trang và chức năng trong AngularJS
+   - Viết lại bằng React và Tailwind CSS
+   - Giữ nguyên chức năng và luồng dữ liệu
+
+3. **Tích hợp với shared services và validators**
+   - Cập nhật các component để sử dụng shared services
+   - Áp dụng shared validators cho các form
+
+### 4.5. Giai đoạn 5: Cấu hình Docker và CI/CD (2-3 ngày)
+
+1. **Tạo Dockerfiles cho mỗi service**
+   - Tạo Dockerfile.dev và Dockerfile.prod cho từng service
+   - Tối ưu hóa build time và image size
+
+2. **Tạo Docker Compose cho toàn bộ stack**
+   - Cấu hình các service để làm việc cùng nhau
+   - Thiết lập mạng và volumes
+
+3. **Thiết lập CI/CD workflow**
+   - Cấu hình GitHub Actions hoặc GitLab CI
+   - Tự động hóa testing, building và deployment
+
+### 4.6. Giai đoạn 6: Tài liệu và Testing (3-4 ngày)
+
+1. **Viết tài liệu**
+   - Tài liệu API
+   - Hướng dẫn phát triển
+   - Quy trình làm việc
+
+2. **Thiết lập testing infrastructure**
+   - Unit tests cho backend
+   - Component tests cho frontend
+   - Integration tests cho toàn bộ hệ thống
+
+### 4.7. Đánh giá và rủi ro của kế hoạch
+
+1. **Rủi ro thời gian**:
+   - Thời gian ước tính chưa tính đến các vấn đề phát sinh
+   - Chưa đề cập đến việc xử lý dữ liệu đang hoạt động (nếu có)
+
+2. **Đề xuất**:
+   - Thêm buffer time 20-30% cho mỗi giai đoạn để xử lý vấn đề phát sinh
+   - Bổ sung kế hoạch kiểm tra tương thích dữ liệu sau mỗi giai đoạn
+
+## 5. Scripts di chuyển tự động
+
+### 5.1. Script di chuyển backend
+
+```bash
+#!/bin/bash
+# move-backend.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/apps/server/configs
+mkdir -p ./steve/apps/server/controllers
+mkdir -p ./steve/apps/server/middlewares
+mkdir -p ./steve/apps/server/models
+mkdir -p ./steve/apps/server/routes
+mkdir -p ./steve/apps/server/utils
+mkdir -p ./steve/apps/server/tests
+
+# Di chuyển configs
+echo "Moving configs..."
+cp -r ./RunOut/Server/configs/* ./steve/apps/server/configs/
+
+# Di chuyển controllers
+echo "Moving controllers..."
+cp -r ./RunOut/Server/controllers/* ./steve/apps/server/controllers/
+
+# Di chuyển middlewares
+echo "Moving middlewares..."
+cp -r ./RunOut/Server/middlewares/* ./steve/apps/server/middlewares/
+
+# Di chuyển models
+echo "Moving models..."
+cp -r ./RunOut/Server/models/* ./steve/apps/server/models/
+
+# Di chuyển routes
+echo "Moving routes..."
+cp -r ./RunOut/Server/routes/* ./steve/apps/server/routes/
+
+# Di chuyển utils
+echo "Moving utils..."
+cp -r ./RunOut/Server/utils/* ./steve/apps/server/utils/
+
+# Di chuyển server.js và các file cấu hình
+echo "Moving server.js and configuration files..."
+cp ./RunOut/Server/server.js ./steve/apps/server/
+cp ./RunOut/Server/.env ./steve/apps/server/
+cp ./RunOut/Server/package.json ./steve/apps/server/
+
+echo "Backend migration completed!"
+```
+
+### 5.2. Script di chuyển và tổng hợp validators
+
+```bash
+#!/bin/bash
+# move-validators.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/common/validators
+
+# 1. Di chuyển validators từ server
+echo "Moving validators from Server..."
+cp -r ./RunOut/Server/middlewares/validators/* ./steve/common/validators/
+
+# 2. Di chuyển validators từ client
+echo "Moving validators from client..."
+if [ -d "./RunOut/client/src/validators" ]; then
+  for file in ./RunOut/client/src/validators/*.js; do
+    if [ -f "$file" ]; then
+      filename=$(basename "$file")
+      # Kiểm tra xem file đã tồn tại trong thư mục đích chưa
+      if [ -f "./steve/common/validators/$filename" ]; then
+        echo "Merging $filename..."
+        # Kế hoạch: Nếu file đã tồn tại, ta sẽ cần phân tích và hợp nhất thủ công
+        cp "$file" "./steve/common/validators/${filename%.js}.client.js"
+      else
+        echo "Copying $filename..."
+        cp "$file" "./steve/common/validators/"
+      fi
+    fi
+  done
+fi
+
+# 3. Kiểm tra và hợp nhất các validator trùng lặp
+echo "Checking for duplicate validators..."
+# Logic để phát hiện và hợp nhất validators trùng lặp
+
+echo "Validators migration completed!"
+```
+
+### 5.3. Script chuẩn hóa các file cấu hình
+
+```bash
+#!/bin/bash
+# standardize-configs.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/config/env
+mkdir -p ./steve/config/lint
+
+# Di chuyển các file .env từ nhiều vị trí và chuẩn hóa
+echo "Standardizing .env files..."
+
+# Di chuyển .env từ Server
+if [ -f "./RunOut/Server/.env" ]; then
+  cp "./RunOut/Server/.env" "./steve/config/env/.env.server"
+fi
+
+# Di chuyển .env từ client
+if [ -f "./RunOut/client/.env.development" ]; then
+  cp "./RunOut/client/.env.development" "./steve/config/env/.env.development"
+fi
+
+if [ -f "./RunOut/client/.env.production" ]; then
+  cp "./RunOut/client/.env.production" "./steve/config/env/.env.production"
+fi
+
+# Di chuyển các file cấu hình ESLint và Prettier
+echo "Moving linting configurations..."
+if [ -f "./RunOut/.eslintrc.js" ]; then
+  cp "./RunOut/.eslintrc.js" "./steve/config/lint/"
+fi
+
+if [ -f "./RunOut/.prettierrc" ]; then
+  cp "./RunOut/.prettierrc" "./steve/config/lint/"
+fi
+
+# Tạo file .env.example
+echo "Creating .env.example template..."
+cat > "./steve/config/env/.env.example" << EOL
+# API Configuration
+API_PORT=3001
+API_HOST=localhost
+API_PREFIX=/api/v1
+
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=27017
+DB_NAME=runout
+DB_USER=
+DB_PASS=
+
+# JWT Configuration
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=30d
+
+# Cloud Storage
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# Email Configuration
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_USER=
+EMAIL_PASS=
+EMAIL_FROM=
+
+# Frontend URLs
+CLIENT_URL=http://localhost:3000
+ADMIN_URL=http://localhost:3002
+EOL
+
+echo "Configuration standardization completed!"
+```
+
+### 5.4. Script di chuyển React frontend
+
+```bash
+#!/bin/bash
+# move-react-frontend.sh
+
+# Đảm bảo thư mục đích tồn tại
+mkdir -p ./steve/apps/client/src/assets
+mkdir -p ./steve/apps/client/src/components/common
+mkdir -p ./steve/apps/client/src/components/features
+mkdir -p ./steve/apps/client/src/components/layout
+mkdir -p ./steve/apps/client/src/context
+mkdir -p ./steve/apps/client/src/hooks
+mkdir -p ./steve/apps/client/src/pages
+mkdir -p ./steve/apps/client/src/services/api
+mkdir -p ./steve/apps/client/src/utils
+mkdir -p ./steve/apps/client/public
+
+# Chọn source React nào để di chuyển (ưu tiên client/src)
+if [ -d "./RunOut/client/src" ]; then
+  SOURCE_DIR="./RunOut/client/src"
+  echo "Using client/src as source..."
+elif [ -d "./RunOut/src" ]; then
+  SOURCE_DIR="./RunOut/src"
+  echo "Using src as source..."
+else
+  echo "No React source directory found!"
+  exit 1
+fi
+
+# Di chuyển các file và thư mục cơ bản
+echo "Moving basic files and directories..."
+cp "${SOURCE_DIR}/App.jsx" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/App.css" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/index.jsx" "./steve/apps/client/src/" 2>/dev/null || :
+cp "${SOURCE_DIR}/index.css" "./steve/apps/client/src/" 2>/dev/null || :
+
+# Di chuyển components
+echo "Moving components..."
+cp -r "${SOURCE_DIR}/components/common"/* "./steve/apps/client/src/components/common/" 2>/dev/null || :
+cp -r "${SOURCE_DIR}/components/features"/* "./steve/apps/client/src/components/features/" 2>/dev/null || :
+cp -r "${SOURCE_DIR}/components/layout"/* "./steve/apps/client/src/components/layout/" 2>/dev/null || :
+
+# Di chuyển contexts
+echo "Moving contexts..."
+cp -r "${SOURCE_DIR}/context"/* "./steve/apps/client/src/context/" 2>/dev/null || :
+
+# Di chuyển hooks
+echo "Moving hooks..."
+cp -r "${SOURCE_DIR}/hooks"/* "./steve/apps/client/src/hooks/" 2>/dev/null || :
+
+# Di chuyển pages
+echo "Moving pages..."
+cp -r "${SOURCE_DIR}/pages"/* "./steve/apps/client/src/pages/" 2>/dev/null || :
+
+# Di chuyển services
+echo "Moving services..."
+cp -r "${SOURCE_DIR}/services/api"/* "./steve/apps/client/src/services/api/" 2>/dev/null || :
+
+# Di chuyển utils
+echo "Moving utils..."
+cp -r "${SOURCE_DIR}/utils"/* "./steve/apps/client/src/utils/" 2>/dev/null || :
+
+# Di chuyển package.json
+echo "Moving package.json..."
+if [ -f "./RunOut/client/package.json" ]; then
+  cp "./RunOut/client/package.json" "./steve/apps/client/"
+else
+  # Tạo package.json cơ bản nếu không có
+  cat > "./steve/apps/client/package.json" << EOL
+{
+  "name": "runout-client",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "axios": "^1.3.5",
+    "formik": "^2.2.9",
+    "yup": "^1.1.1",
+    "tailwindcss": "^3.3.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "postcss": "^8.4.21",
+    "vite": "^4.2.1",
+    "vitest": "^0.30.1"
+  }
+}
+EOL
+fi
+
+echo "React frontend migration completed!"
+```
+
+### 5.5. Đánh giá và rủi ro của scripts
+
+1. **Rủi ro**:
+   - Scripts có thể ghi đè lên các tệp đã tồn tại mà không có cảnh báo
+   - Thiếu cơ chế kiểm tra tệp đã được di chuyển có tương thích không
+
+2. **Đề xuất**:
+   - Bổ sung logic kiểm tra tệp tồn tại trước khi ghi đè
+   - Thêm options để dry-run scripts trước khi thực hiện thực tế
+
+## 6. Quản lý rủi ro chuyển đổi
+
+### 6.1. Backup Strategy
+
+1. **Tạo snapshot trước khi bắt đầu**
+   - Tạo bản sao hoàn chỉnh của dự án hiện tại
+   - Sử dụng git tag để đánh dấu phiên bản trước khi tái cấu trúc
+
+```bash
+#!/bin/bash
+# backup-project.sh
+
+# Tạo thư mục backup
+BACKUP_DATE=$(date +"%Y%m%d")
+BACKUP_DIR="RunOut_backup_${BACKUP_DATE}"
+
+echo "Creating backup in ${BACKUP_DIR}..."
+cp -r ./RunOut "${BACKUP_DIR}"
+
+# Nếu sử dụng git
+if [ -d "./RunOut/.git" ]; then
+  echo "Creating git tag for current state..."
+  cd ./RunOut
+  git tag -a "backup_${BACKUP_DATE}" -m "Backup before restructuring"
+  cd ..
+fi
+
+echo "Backup completed!"
+```
+
+2. **Backup sau mỗi giai đoạn lớn**
+   - Tạo snapshot sau mỗi giai đoạn di chuyển
+   - Lưu log của mỗi giai đoạn
+
+3. **Đánh giá và rủi ro của chiến lược backup**:
+   - Chiến lược backup chỉ tập trung vào code, không đề cập đến dữ liệu
+   - Chưa có điểm khôi phục rõ ràng nếu quá trình di chuyển gặp vấn đề
+
+4. **Đề xuất cải thiện**:
+   - Bổ sung kế hoạch backup và khôi phục cho database
+   - Thiết lập các "điểm an toàn" cụ thể (giai đoạn đã hoàn thành và kiểm tra) trước khi tiến hành giai đoạn tiếp theo
+
+### 6.2. Kế hoạch xử lý dữ liệu và database migration
+
+1. **Backup dữ liệu**
+   ```bash
+   # Tạo bản sao lưu đầy đủ của database trước khi bắt đầu
+   mongodump --uri="mongodb://username:password@host:port/database" --out=/backup/path
+   ```
+   - Lên lịch backup tự động hàng ngày trong quá trình di chuyển
+   - Lưu trữ bản sao lưu ở ít nhất 2 vị trí khác nhau
+
+2. **Chiến lược migration**
+   - Sử dụng schema version:
+     - Thêm trường schemaVersion vào mỗi collection
+     - Viết script migration cho mỗi phiên bản schema
+
+   ```javascript
+   // migrations/v1-to-v2.js
+   db.getCollection('users').find({schemaVersion: 1}).forEach(function(user) {
+     // Thực hiện các thay đổi
+     user.fullName = user.firstName + ' ' + user.lastName;
+     delete user.firstName;
+     delete user.lastName;
+     user.schemaVersion = 2;
+     
+     db.users.save(user);
+   });
+   ```
+   - Kiểm tra tính toàn vẹn dữ liệu sau mỗi migration
+
+### 6.3. Kiểm tra tính hoạt động
+
+1. **Kiểm tra API endpoints**
+   - Viết script để kiểm tra tất cả API endpoints
+   - So sánh response với phiên bản cũ
+
+```javascript
+// check-api-endpoints.js
+const axios = require('axios');
+const fs = require('fs');
+
+const OLD_API_BASE = 'http://localhost:3001/api';
+const NEW_API_BASE = 'http://localhost:3001/api/v1';
+
+// Danh sách các endpoints cần kiểm tra
+const endpoints = [
+  { method: 'GET', path: '/products' },
+  { method: 'GET', path: '/categories' },
+  // Thêm các endpoints khác
+];
+
+async function compareEndpoints() {
+  const results = [];
+
+  for (const endpoint of endpoints) {
+    try {
+      console.log(`Testing ${endpoint.method} ${endpoint.path}...`);
+      
+      // Gửi request đến API cũ
+      const oldResponse = await axios({
+        method: endpoint.method,
+        url: `${OLD_API_BASE}${endpoint.path}`,
+        // headers, data nếu cần
+      });
+      
+      // Gửi request đến API mới
+      const newResponse = await axios({
+        method: endpoint.method,
+        url: `${NEW_API_BASE}${endpoint.path}`,
+        // headers, data nếu cần
+      });
+      
+      // So sánh response
+      const isEquivalent = JSON.stringify(oldResponse.data) === JSON.stringify(newResponse.data);
+      
+      results.push({
+        endpoint: `${endpoint.method} ${endpoint.path}`,
+        status: isEquivalent ? 'PASS' : 'FAIL',
+        oldStatus: oldResponse.status,
+        newStatus: newResponse.status,
+      });
+      
+    } catch (error) {
+      results.push({
+        endpoint: `${endpoint.method} ${endpoint.path}`,
+        status: 'ERROR',
+        error: error.message,
+      });
+    }
+  }
+  
+  // Lưu kết quả vào file
+  fs.writeFileSync('./api-comparison-results.json', JSON.stringify(results, null, 2));
+  
+  // In báo cáo
+  console.log('\nAPI Comparison Results:');
+  console.log('=======================');
+  
+  const passed = results.filter(r => r.status === 'PASS').length;
+  const failed = results.filter(r => r.status === 'FAIL').length;
+  const errors = results.filter(r => r.status === 'ERROR').length;
+  
+  console.log(`Total endpoints: ${results.length}`);
+  console.log(`Passed: ${passed}`);
+  console.log(`Failed: ${failed}`);
+  console.log(`Errors: ${errors}`);
+  
+  if (failed > 0 || errors > 0) {
+    console.log('\nDetails of failed tests:');
+    results
+      .filter(r => r.status !== 'PASS')
+      .forEach(r => console.log(`- ${r.endpoint}: ${r.status} ${r.error ? `(${r.error})` : ''}`));
+  }
+}
+
+compareEndpoints();
+```
+
+2. **Kiểm tra giao diện người dùng**
+   - So sánh UI giữa phiên bản cũ và mới
+   - Đảm bảo các chức năng chính vẫn hoạt động
+
+### 6.4. Quy trình Kiểm tra A/B cho phiên bản mới
+
+1. **Thiết lập hệ thống song song**
+   - Duy trì hệ thống cũ hoạt động trong quá trình phát triển phiên bản mới
+   - Sử dụng feature flags để kiểm soát việc chuyển đổi từng chức năng
+   - Sử dụng proxy để định tuyến người dùng giữa phiên bản cũ và mới
+
+2. **Chiến lược phân phối lưu lượng**
+   - **Giai đoạn 1 - Internal testing**:
+     - 100% internal users sử dụng phiên bản mới
+     - 0% external users sử dụng phiên bản mới
+     - Thu thập phản hồi và sửa lỗi
+
+   - **Giai đoạn 2 - Canary release**:
+     - 100% internal users sử dụng phi
+     
