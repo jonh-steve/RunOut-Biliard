@@ -11,7 +11,8 @@ npm start
 
 
 <<<<<<< HEAD
-``` 
+```
+```
 # cau truc du an 
 RunOut/
 ├── create-project.ps1          # Script tạo dự án trên Windows
